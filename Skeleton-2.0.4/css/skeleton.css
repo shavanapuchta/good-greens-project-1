@@ -125,7 +125,9 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  color: #222; 
+  background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fvegan-food&psig=AOvVaw00FJWQNocWgt_tWPj6w-4y&ust=1674884599559000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCIDkiL6F5_wCFQAAAAAdAAAAABAE);
+}
 
 
 /* Typography

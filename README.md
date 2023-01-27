@@ -1,1 +1,1 @@
-# server-side-apis-miniproject
+# Good Greens Project #1

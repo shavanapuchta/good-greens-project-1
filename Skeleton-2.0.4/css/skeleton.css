@@ -130,7 +130,11 @@ body {
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--good-green); 
-  background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fvegan-food&psig=AOvVaw00FJWQNocWgt_tWPj6w-4y&ust=1674884599559000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCIDkiL6F5_wCFQAAAAAdAAAAABAE);
+  background-image: url(https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg);
+}
+
+header {
+  background-color: white;
 }
 
 .title { /*-sasha*/
@@ -142,14 +146,26 @@ body {
 .topnav {
   position: relative;
   text-align: right;
-  margin-right: 15px;
+  margin-right: 35px;
+}
+
+.active {
+  font-size: large;
+  text-decoration: none;
 }
 
 div.container{
 align-items: center;
-margin-bottom: 0;
+margin-top: 0%;
 }
 
+.searched-rest {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+}
+.subtitle{
+  font-weight: 400;
+}
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -178,12 +194,12 @@ p {
   margin-top: 0; }
 
 
-/* Links
+/* Links (changed link color to good green-Sasha)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: var(--good-green);; }
 a:hover {
-  color: #0FA0CE; }
+  text-decoration: underline; }
 
 
 /* Buttons
@@ -314,6 +330,7 @@ label > .label-body {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
+    border-radius: 15px;
   }
   
   .translucent-form-overlay .columns.row {
@@ -346,7 +363,9 @@ label > .label-body {
       justify-content: flex-start;
       
     }
-    
+    div.one-half.column{
+      margin-top: 25%;
+    }
     .translucent-form-overlay{
       margin: 2px 50px 20px 0;
       position: relative;
@@ -356,6 +375,8 @@ label > .label-body {
     .searched-rest{
       display: inline-block;
       text-align: center;
+      position: relative;
+      top: 60px;
     }
   }
 

@@ -51,7 +51,7 @@
 }
 
 /* For devices larger than 550px */
-@media (min-width: 550px) {
+@media (min-width: 650px) {
   .container {
     width: 80%; }
   .column,
@@ -145,6 +145,11 @@ body {
   margin-right: 15px;
 }
 
+div.container{
+align-items: center;
+margin-bottom: 0;
+}
+
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -160,7 +165,7 @@ h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 
 /* Larger than phablet */
-@media (min-width: 550px) {
+@media (min-width: 650px) {
   h1 { font-size: 5.0rem; }
   h2 { font-size: 4.2rem; }
   h3 { font-size: 3.6rem; }
@@ -334,20 +339,23 @@ label > .label-body {
   .translucent-form-overlay input::placeholder {
     color: #8a8a8a;
   }
-  /*for devices wider than 550px*/
-  @media (min-width: 550px){
+  /*for devices wider than 550px -sasha*/
+  @media (min-width: 650px){
     div.container{
       margin: 0;
       justify-content: flex-start;
+      
     }
-    div.row{
-      margin:10px, 20px, 20px, 0;
-    }
+    
     .translucent-form-overlay{
       margin: 2px 50px 20px 0;
       position: relative;
       bottom: 180px;
       max-width: 350px;
+    }
+    .searched-rest{
+      display: inline-block;
+      text-align: center;
     }
   }
 
@@ -472,7 +480,7 @@ there.
 @media (min-width: 400px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
+@media (min-width: 650px) {}
 
 /* Larger than tablet */
 @media (min-width: 750px) {}

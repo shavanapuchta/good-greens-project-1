@@ -24,7 +24,9 @@
 - Clearing
 - Media Queries
 */
-
+:root{
+  --good-green: #30A960;
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -127,13 +129,22 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #30A960; 
+  color: var(--good-green); 
   background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fvegan-food&psig=AOvVaw00FJWQNocWgt_tWPj6w-4y&ust=1674884599559000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCIDkiL6F5_wCFQAAAAAdAAAAABAE);
 }
 
-.title {
-  color: #30A960;
+.title { /*-sasha*/
+  color: var(--good-green); 
+  padding: 10px;
+  margin: 0;
 }
+
+.topnav {
+  position: relative;
+  text-align: right;
+  margin-right: 15px;
+}
+
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -156,7 +167,6 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
   h4 { font-size: 3.0rem; }
   h5 { font-size: 2.4rem; }
   h6 { font-size: 1.5rem; }
-  /*put search box on side*/
 }
 
 p {
@@ -293,6 +303,53 @@ label > .label-body {
   margin-left: .5rem;
   font-weight: normal; }
 
+ /*search form --added by Sasha*/
+  .translucent-form-overlay {
+    max-width: 500px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+  }
+  
+  .translucent-form-overlay .columns.row {
+    display: block;
+  }
+  
+  .translucent-form-overlay h3, .translucent-form-overlay label {
+    color: var(--good-green);
+  }
+  
+  .translucent-form-overlay input, .translucent-form-overlay select {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input::-webkit-input-placeholder {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input:-ms-input-placeholder {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input::placeholder {
+    color: #8a8a8a;
+  }
+  /*for devices wider than 550px*/
+  @media (min-width: 550px){
+    div.container{
+      margin: 0;
+      justify-content: flex-start;
+    }
+    div.row{
+      margin:10px, 20px, 20px, 0;
+    }
+    .translucent-form-overlay{
+      margin: 2px 50px 20px 0;
+      position: relative;
+      bottom: 180px;
+      max-width: 350px;
+    }
+  }
 
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

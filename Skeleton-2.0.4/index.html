@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Your page title here :)</title>
+  <title>Good Greens</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -33,15 +33,15 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <header>
     <h1 class="title">Good Greens</h1>
-    <div class="topnav">
+    <nav class="topnav">
       <a class="active" href="#favorites">Favorites</a>
-    </div>
+    </nav>
   </header>
   <div class="container">
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">
         <div class="translucent-form-overlay">
-          <form>
+          <form class="container">
             <h3>Search for Restaurants</h3>
             <p>Options:</p>
             <input type="checkbox" name="options" id="veg1" value="vegetarian" onclick="return ValidateSelection();">
@@ -119,7 +119,7 @@
     </div>
   </div>
 
-  <div id="restaurant-list">
+  <div id="restaurant-list" class="container">
     <h4 class="subtitle">Restaurants Near You:</h4>
     <div id="restaurant-container" class="list-group"></div>
   </div>

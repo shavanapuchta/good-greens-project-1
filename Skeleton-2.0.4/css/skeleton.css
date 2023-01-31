@@ -51,7 +51,7 @@
 }
 
 /* For devices larger than 550px */
-@media (min-width: 650px) {
+@media (min-width: 640px) {
   .container {
     width: 80%; }
   .column,
@@ -155,8 +155,7 @@ header {
 }
 
 div.container{
-align-items: center;
-margin-top: 0%;
+margin-top:0;
 }
 
 .searched-rest {
@@ -181,7 +180,7 @@ h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 
 /* Larger than phablet */
-@media (min-width: 650px) {
+@media (min-width: 640px) {
   h1 { font-size: 5.0rem; }
   h2 { font-size: 4.2rem; }
   h3 { font-size: 3.6rem; }
@@ -327,10 +326,11 @@ label > .label-body {
  /*search form --added by Sasha*/
   .translucent-form-overlay {
     max-width: 500px;
-    width: 100%;
+    width: 85%;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 15px;
+    flex-direction: column;
   }
   
   .translucent-form-overlay .columns.row {
@@ -356,12 +356,11 @@ label > .label-body {
   .translucent-form-overlay input::placeholder {
     color: #8a8a8a;
   }
-  /*for devices wider than 550px -sasha*/
-  @media (min-width: 650px){
+  /*for devices wider than 640px -sasha*/
+  @media (min-width: 640px){
     div.container{
       margin: 0;
       justify-content: flex-start;
-      
     }
     div.one-half.column{
       margin-top: 25%;
@@ -369,14 +368,25 @@ label > .label-body {
     .translucent-form-overlay{
       margin: 2px 50px 20px 0;
       position: relative;
-      bottom: 180px;
+      bottom: 155px;
       max-width: 350px;
+      min-width: 300px;
     }
     .searched-rest{
       display: inline-block;
       text-align: center;
       position: relative;
-      top: 60px;
+      flex-direction: column;
+    }
+  }
+  /*for medium sized desktops*/
+  @media (min-width: 720px) {
+    
+    .searched-rest{
+      display: inline-block;
+      text-align: center;
+      position: relative;
+      flex-direction: column;
     }
   }
 
@@ -501,10 +511,10 @@ there.
 @media (min-width: 400px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 650px) {}
+@media (min-width: 640px) {}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 720px) {}
 
 /* Larger than desktop */
 @media (min-width: 1000px) {}

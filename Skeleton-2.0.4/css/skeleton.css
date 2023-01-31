@@ -161,6 +161,7 @@ margin-top:0;
 .searched-rest {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 15px;
+  top: 20px;
 }
 .subtitle{
   font-weight: 400;
@@ -377,17 +378,17 @@ label > .label-body {
       text-align: center;
       position: relative;
       flex-direction: column;
+      bottom: 150px;
     }
   }
   /*for medium sized desktops*/
   @media (min-width: 720px) {
     
     .searched-rest{
-      display: inline-block;
-      text-align: center;
-      position: relative;
-      flex-direction: column;
+      float:right;
+      flex-direction: row;
     }
+   
   }
 
 /* Lists

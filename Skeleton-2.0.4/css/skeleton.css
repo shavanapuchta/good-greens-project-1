@@ -24,7 +24,9 @@
 - Clearing
 - Media Queries
 */
-
+:root{
+  --good-green: #30A960;
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -49,7 +51,7 @@
 }
 
 /* For devices larger than 550px */
-@media (min-width: 550px) {
+@media (min-width: 650px) {
   .container {
     width: 80%; }
   .column,
@@ -120,15 +122,50 @@ html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
+
+
 body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; 
-  background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fvegan-food&psig=AOvVaw00FJWQNocWgt_tWPj6w-4y&ust=1674884599559000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCIDkiL6F5_wCFQAAAAAdAAAAABAE);
+  color: var(--good-green); 
+  background-image: url(https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg);
 }
 
+header {
+  background-color: white;
+}
+
+.title { /*-sasha*/
+  color: var(--good-green); 
+  padding: 10px;
+  margin: 0;
+}
+
+.topnav {
+  position: relative;
+  text-align: right;
+  margin-right: 35px;
+}
+
+.active {
+  font-size: large;
+  text-decoration: none;
+}
+
+div.container{
+align-items: center;
+margin-top: 0%;
+}
+
+.searched-rest {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+}
+.subtitle{
+  font-weight: 400;
+}
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -144,7 +181,7 @@ h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 
 /* Larger than phablet */
-@media (min-width: 550px) {
+@media (min-width: 650px) {
   h1 { font-size: 5.0rem; }
   h2 { font-size: 4.2rem; }
   h3 { font-size: 3.6rem; }
@@ -157,16 +194,17 @@ p {
   margin-top: 0; }
 
 
-/* Links
+/* Links (changed link color to good green-Sasha)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: var(--good-green);; }
 a:hover {
-  color: #0FA0CE; }
+  text-decoration: underline; }
 
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*MAIN SEARCH BUTTON --Sasha*/
 .button,
 button,
 input[type="submit"],
@@ -175,18 +213,18 @@ input[type="button"] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: #555;
+  color: white;
+  border:none;
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 38px;
   letter-spacing: .1rem;
-  text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: transparent;
+  background-color: #30A960;
   border-radius: 4px;
-  border: 1px solid #bbb;
+  border: none;
   cursor: pointer;
   box-sizing: border-box; }
 .button:hover,
@@ -286,6 +324,61 @@ label > .label-body {
   margin-left: .5rem;
   font-weight: normal; }
 
+ /*search form --added by Sasha*/
+  .translucent-form-overlay {
+    max-width: 500px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+  }
+  
+  .translucent-form-overlay .columns.row {
+    display: block;
+  }
+  
+  .translucent-form-overlay h3, .translucent-form-overlay label {
+    color: var(--good-green);
+  }
+  
+  .translucent-form-overlay input, .translucent-form-overlay select {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input::-webkit-input-placeholder {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input:-ms-input-placeholder {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input::placeholder {
+    color: #8a8a8a;
+  }
+  /*for devices wider than 550px -sasha*/
+  @media (min-width: 650px){
+    div.container{
+      margin: 0;
+      justify-content: flex-start;
+      
+    }
+    div.one-half.column{
+      margin-top: 25%;
+    }
+    .translucent-form-overlay{
+      margin: 2px 50px 20px 0;
+      position: relative;
+      bottom: 180px;
+      max-width: 350px;
+    }
+    .searched-rest{
+      display: inline-block;
+      text-align: center;
+      position: relative;
+      top: 60px;
+    }
+  }
 
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -408,7 +501,7 @@ there.
 @media (min-width: 400px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
+@media (min-width: 650px) {}
 
 /* Larger than tablet */
 @media (min-width: 750px) {}

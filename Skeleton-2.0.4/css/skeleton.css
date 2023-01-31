@@ -24,6 +24,20 @@
 - Clearing
 - Media Queries
 */
+
+#map {
+  left: 37%;
+  bottom: 20%;
+  position: absolute;
+  height: 400px;
+  width: 50%;
+  z-index: 2;
+  border: #30A960;
+  border-style: solid;
+  border-width: 10px;
+
+}
+
 :root{
   --good-green: #30A960;
 }

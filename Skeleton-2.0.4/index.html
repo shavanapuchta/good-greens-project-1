@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -50,7 +51,7 @@
           <label for="veg2">Vegan</label>
           <div class="row columns">
             <label>City
-              <input type="text" name="keyword">
+              <input id="googlesearch" type="text" name="keyword">
             </label>
           </div>
           <div class="row columns">
@@ -116,6 +117,8 @@
          </form>
        </div>        
      </div>
+     
+
       
      <div id="restaurant-list" class="searched-rest">
       <h4 class="subtitle">Restaurants Near You:</h4>
@@ -123,6 +126,7 @@
     </div>
 
   </div>
+  <div id="map"></div>
       
       
   
@@ -130,4 +134,14 @@
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc&libraries=places&callback=initMap">
+</script>
+<!--<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
+defer
+></script>-->
+
+<script src="java.js"></script>
+
 </html>

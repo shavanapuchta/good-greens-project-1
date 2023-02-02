@@ -9,7 +9,7 @@ var searchBtn = document.querySelector(".search-button")
 
 
 
-function searchCity(city, state) {
+function searchCity(city) {
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + weatherKey;
   console.log(queryURL)
   fetch(queryURL).then(function (response) {
@@ -38,6 +38,10 @@ function searchCity(city, state) {
     })
 
 }
+var daygo = "San Diego"
+var cal = "California"
+searchCity(daygo);
+
 
 searchBtn.addEventListener("click", function () {
   var cityName = document.querySelector("#googlesearch").value

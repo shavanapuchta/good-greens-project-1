@@ -98,7 +98,14 @@ function addPlaces(places, map) {
         title: place.name,
         position: place.geometry.location,
       });
+      searchBtn.addEventListener('click', ()=>{
+        var recreatelist = document.querySelectorAll("li");
+        console.log(recreatelist[0]);
+        for (let i= 0; i < recreatelist.length; i++) {
+         recreatelist[i].remove();
+        }
 
+      })
       const li= document.createElement("li");
 
       li.textContent = place.name;
@@ -108,14 +115,7 @@ function addPlaces(places, map) {
 
 
       });
-     /* searchBtn.addEventListener('click', ()=>{
-        var restlist = document.querySelectorAll('li');
-        console.log(restlist.length);
-        for (let i= 0; i < restlist.length; i++) {
-          restlist.textContent = place.name;
-        }
 
-      })*/
     }
   }
 }

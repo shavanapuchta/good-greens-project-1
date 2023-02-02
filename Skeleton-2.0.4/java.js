@@ -64,7 +64,7 @@ function initMap(ev) {
   };
 
   service.nearbySearch(
-    { location: ev, radius: 500, type: "store"},
+    { location: ev, radius: 500, type: "restaurant"},
     (results, status, pagination) => {
       if (status !== "OK" || !results) return;
 
@@ -105,7 +105,17 @@ function addPlaces(places, map) {
       placesList.appendChild(li);
       li.addEventListener("click", () => {
         map.setCenter(place.geometry.location);
+
+
       });
+     /* searchBtn.addEventListener('click', ()=>{
+        var restlist = document.querySelectorAll('li');
+        console.log(restlist.length);
+        for (let i= 0; i < restlist.length; i++) {
+          restlist.textContent = place.name;
+        }
+
+      })*/
     }
   }
 }

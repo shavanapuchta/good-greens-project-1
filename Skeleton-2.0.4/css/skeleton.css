@@ -35,9 +35,12 @@
   border: #30A960;
   border-style: solid;
   border-width: 10px;
-
 }
-
+#restaurant-list{
+  position:absolute;
+  width: 100%;
+  top: 82%
+}
 :root{
   --good-green: #30A960;
 }

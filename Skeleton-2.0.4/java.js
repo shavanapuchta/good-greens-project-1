@@ -64,7 +64,7 @@ function initMap(ev) {
   };
 
   service.nearbySearch(
-    { location: ev, radius: 500, type: "restaurant"},
+    { location: ev, radius: 2000, type: "restaurant"},
     (results, status, pagination) => {
       if (status !== "OK" || !results) return;
 

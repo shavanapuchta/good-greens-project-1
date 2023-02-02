@@ -55,8 +55,8 @@
       border-radius: 0px;}
 }
 
-/* For devices larger than 550px */
-@media (min-width: 640px) {
+/* For devices larger than 720px */
+@media (min-width: 720px) {
   .container {
     width: 80%; }
   .column,
@@ -78,7 +78,7 @@
   .nine.columns                   { width: 74.0%;          }
   .ten.columns                    { width: 82.6666666667%; }
   .eleven.columns                 { width: 91.3333333333%; }
-  .twelve.columns                 { width: 100%; margin-left: 0; }
+  .twelve.columns                 { width: 100%; margin-left: 0;}
 
   .one-third.column               { width: 30.6666666667%; }
   .two-thirds.column              { width: 65.3333333333%; }
@@ -364,6 +364,14 @@ label > .label-body {
 
    /*for medium sized desktops*/
    @media (min-width: 720px) {
+    element.style {
+      position: absolute;
+     }
+
+     .topnav{
+      margin-right: 70px;
+     }
+     
     .translucent-form-overlay{
       margin: 2px 50px 20px 0;
       position: relative;
@@ -374,17 +382,23 @@ label > .label-body {
     }
 
     #map {
-      position: relative;
-      right: 100%;
-      height: 45%;
-      width: 50%;
-      z-index: 2;
-      border: #30A960;
-      border-style: solid;
-      border-radius: 5px;
-      border-width: 10px;
+    position: absolute;
+    left: 45%;
+    height: 92%;
+    width: 55%;
+    z-index: 2;
+    border: #30A960;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 10px;
     }
-    
+    .searched-rest{
+      position: absolute;
+      display: inline-block;
+      text-align: center;
+      top: 100%;
+      left: 25%;
+    }
   }
   /*for desktops -sasha*/
   @media (min-width: 1000px){
@@ -392,9 +406,11 @@ label > .label-body {
       margin: 0;
       justify-content: flex-start;
     }
+
     div.one-half.column{
       margin-top: 25%;
     }
+
     .translucent-form-overlay{
       margin: 2px 50px 20px 0;
       position: relative;
@@ -404,6 +420,7 @@ label > .label-body {
       border-radius: 15px;
       left:0%;
     }
+
     .searched-rest{
       position: absolute;
       display: inline-block;
@@ -422,8 +439,6 @@ label > .label-body {
       border-style: solid;
       border-radius: 5px;
       border-width: 10px;
-      
-      
     }
   }
  

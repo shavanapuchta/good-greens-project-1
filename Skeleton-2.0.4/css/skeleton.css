@@ -163,10 +163,23 @@ div.container{
 margin-top:0;
 }
 
+#map {
+  position: relative;
+  top:40%;
+  height: 60%;
+  width: 100%;
+  z-index: 2;
+  border: #30A960;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 10px;
+  }
+
 .searched-rest {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 15px;
-  top: 20px;
+  position: relative;
+  top: 200px;
 }
 .subtitle{
   font-weight: 400;
@@ -371,7 +384,7 @@ label > .label-body {
      .topnav{
       margin-right: 70px;
      }
-     
+
     .translucent-form-overlay{
       margin: 2px 50px 20px 0;
       position: relative;

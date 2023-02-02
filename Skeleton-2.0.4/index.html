@@ -139,7 +139,10 @@
 
       <div id="restaurant-list" class="searched-rest">
         <h4 class="subtitle">Restaurants Near You:</h4>
-        <div id="restaurant-container" class="list-group"></div>
+        <div id="restaurant-container" class="list-group">
+          <ul id="places"></ul>
+        </div>
+        <button id="more">More Results</button>
       </div>
     </div>
     <div id="map"></div>
@@ -148,8 +151,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   </body>
   <script
-    async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc&libraries=places&callback=initMap"
+    defer
   ></script>
   <!--<script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"

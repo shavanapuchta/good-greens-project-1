@@ -573,9 +573,11 @@ label>.label-body {
   }
 
   #map {
+    position: absolute;
     top:0%;
     left: 45%;
     height: 92%;
+    min-width: 25%;
     width: 55%;
     z-index: 2;
     border: #30A960;

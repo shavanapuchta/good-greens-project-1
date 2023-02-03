@@ -129,7 +129,7 @@ function addPlaces(places, map) {
         //   place.rating.style.color = "red"
 
         // }
-        // if (place.rating == 5) {
+        // if (place.rating >= 4.5) {
         //   place.rating.style.color = "red"
 
         // }

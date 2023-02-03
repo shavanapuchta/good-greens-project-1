@@ -9,7 +9,7 @@ var searchBtn = document.querySelector(".search-button");
 document.querySelector("#googlesearch").value = "San Diego";
 searchCity();
 
-var coord = {lat: 32.11, lng: -117.32}
+var coord = { lat: 32.11, lng: -117.32 }
 console.log(coord)
 var daygo = "San Diego"
 var cal = "California"
@@ -24,7 +24,7 @@ searchBtn.addEventListener("click", function () {
   console.log(coo);
   //var storedcity = localStorage.getItem("city");
   //console.log(JSON.parse(storedcity));
-  
+
 })
 function searchCity() {
   var cityName = document.querySelector("#googlesearch").value
@@ -37,13 +37,13 @@ function searchCity() {
 
   })
     .then(function (data) {
-      
+
       console.log(data);
-      coord = {lat: data.coord.lat, lng: data.coord.lon};
+      coord = { lat: data.coord.lat, lng: data.coord.lon };
       console.log(coord)
       localStorage.setItem("city", JSON.stringify(coord));
       initMap(coord);
-})
+    })
 }
 
 function initMap(ev) {
@@ -64,7 +64,7 @@ function initMap(ev) {
   };
 
   service.nearbySearch(
-    { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian"},
+    { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian" },
     (results, status, pagination) => {
       if (status !== "OK" || !results) return;
 
@@ -82,7 +82,7 @@ function initMap(ev) {
 function addPlaces(places, map) {
   const placesList = document.getElementById("places");
 
-  for(const place of places) {
+  for (const place of places) {
     if (place.geometry && place.geometry.location) {
       const image = {
         url: place.icon,
@@ -98,18 +98,18 @@ function addPlaces(places, map) {
         title: place.name,
         position: place.geometry.location,
       });
-      searchBtn.addEventListener('click', ()=>{
+      searchBtn.addEventListener('click', () => {
         var recreatelist = document.querySelectorAll("li");
         console.log(recreatelist[0]);
-        for (let i= 0; i < recreatelist.length; i++) {
-         recreatelist[i].remove();
-         console.log(place)
+        for (let i = 0; i < recreatelist.length; i++) {
+          recreatelist[i].remove();
+          console.log(place)
         }
 
       })
-      const li= document.createElement("li");
+      const li = document.createElement("li");
 
-      li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: " + place.rating + " Stars <br> Price: " + place.price_level +"/5";
+      li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: " + place.rating + " Stars <br> Price: " + place.price_level + "/5" + "<br>" + place.photos[0].html_attributions;;
       placesList.appendChild(li);
       li.addEventListener("click", () => {
         map.setCenter(place.geometry.location);
@@ -120,11 +120,11 @@ function addPlaces(places, map) {
     }
   }
 }
-  // // we will want to find the restaurant and vegetarian in here 
+// // we will want to find the restaurant and vegetarian in here 
 
 
 window.initMap = initMap();
-// Need to figure out what additional call we need to figure out to get to the restaurants for the location. 
+// Need to figure out what additional call we need to figure out to get to the restaurants for the location.
 
 
 //service.textSearch(request, callback);

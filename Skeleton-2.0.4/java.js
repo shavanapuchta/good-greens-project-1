@@ -103,12 +103,13 @@ function addPlaces(places, map) {
         console.log(recreatelist[0]);
         for (let i= 0; i < recreatelist.length; i++) {
          recreatelist[i].remove();
+         console.log(place)
         }
 
       })
       const li= document.createElement("li");
 
-      li.textContent = place.name;
+      li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: " + place.rating + " Stars Price: " + place.price_level;
       placesList.appendChild(li);
       li.addEventListener("click", () => {
         map.setCenter(place.geometry.location);

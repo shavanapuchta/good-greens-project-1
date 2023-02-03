@@ -109,7 +109,7 @@ function addPlaces(places, map) {
       })
       const li= document.createElement("li");
 
-      li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: " + place.rating + " Stars Price: " + place.price_level;
+      li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: " + place.rating + " Stars <br> Price: " + place.price_level +"/5";
       placesList.appendChild(li);
       li.addEventListener("click", () => {
         map.setCenter(place.geometry.location);

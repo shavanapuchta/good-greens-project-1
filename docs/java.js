@@ -114,18 +114,18 @@ function addPlaces(places, map) {
       li.addEventListener("click", () => {
         map.setCenter(place.geometry.location);
 
-        // if (place.rating < 2 && place.rating >= 1) {
+        // if (place.rating < 1.5) {
         //   place.rating.style.color = "violet"
         // }
-        // if (place.rating < 3 && place.rating >= 2) {
+        // if (place.rating >= 1.5 && < 2.5) {
         //   place.rating.style.color = "red"
 
         // }
-        // if (place.rating < 4 && place.rating >= 3) {
+        // if (place.rating >= 2.5 && place.rating <3.5) {
         //   place.rating.style.color = "yellow"
 
         // }
-        // if (place.rating < 5 && place.rating >= 4) {
+        // if (place.rating >= 3.5 && place.rating <4.5) {
         //   place.rating.style.color = "red"
 
         // }

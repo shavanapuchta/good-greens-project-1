@@ -24,10 +24,10 @@
 - Clearing
 - Media Queries
 */
-/*
+
 #map {
-  /*left: 37%;
-  bottom: 20%;*/
+  left: 37%;
+  bottom: 20%;
   position: absolute;
   height: 400px;
   width: 50%;
@@ -43,7 +43,7 @@
   position:absolute;
   width: 100%;
   top: 82%
-}*/
+}
 /*weirdness ends*/
 :root {
   --good-green: #30A960;

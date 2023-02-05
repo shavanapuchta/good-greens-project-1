@@ -108,17 +108,25 @@ function addPlaces(places, map) {
 
       })
       const li = document.createElement("li");
-      if (place.rating < 1.5){
-        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; <br> Price: " + place.price_level + "/5" + "<br>" ;
-      }else if (place.rating >= 1.5 && place.rating < 2.5) {
-        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf;  <br> Price: " + place.price_level + "/5" + "<br>" ;
-      }else if (place.rating >= 2.5 && place.rating <3.5) {
-        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; &starf;  <br> Price: " + place.price_level + "/5" + "<br>" ;
-      }else if (place.rating >= 3.5 && place.rating <4.5) {
-        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; &starf; &starf; <br> Price: " + place.price_level + "/5" + "<br>" ;
-      }else if (place.rating >= 4.5) {
-        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: " + place.price_level + "/5" + "<br>" ;
 
+      if (place.rating < 1.3){
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; <br> Price: " + place.price_level + "/5" + "<br>" ;
+      }else if(place.rating >= 1.3 && place.rating < 1.7){
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: " + place.price_level + "/5" + "<br>" ;
+      }else if (place.rating >= 1.7 && place.rating < 2.3) {
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf;  <br> Price: " + place.price_level + "/5" + "<br>" ;
+      }else if(place.rating >= 2.3 && place.rating <2.7){
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: " + place.price_level + "/5" + "<br>" ;
+      }else if (place.rating >= 2.7 && place.rating <3.3) {
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; &starf;  <br> Price: " + place.price_level + "/5" + "<br>" ;
+      }else if(place.rating >= 3.3 && place.rating < 3.7){
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: " + place.price_level + "/5" + "<br>" ;
+      }else if (place.rating >= 3.7 && place.rating <4.3){
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; &starf; &starf;  <br> Price: " + place.price_level + "/5" + "<br>" ;
+      }else if (place.rating >= 4.3 && place.rating <4.7) {
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: " + place.price_level + "/5" + "<br>" ;
+      }else if (place.rating >= 4.7) {
+        li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: " + place.price_level + "/5" + "<br>" ;
       }
       placesList.appendChild(li);
       li.addEventListener("click", () => {

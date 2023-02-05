@@ -92,6 +92,7 @@ div.container {
   .translucent-form-overlay {
     position: relative;
     bottom: 200px;
+    height: 50%;
     max-width: 350px;
     min-width: 300px;
     border-radius: 15px;

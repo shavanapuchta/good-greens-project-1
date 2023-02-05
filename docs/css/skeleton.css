@@ -684,15 +684,15 @@ label>.label-body {
     position: absolute;
     display: inline-block;
     text-align: center;
-    top: 58%;
+    top: 70%;
   }
 
 
   #map {
     position: absolute;
     top: 13%;
-    left: 35%;
-    height: 40%;
+    left: 40%;
+    height: 50%;
     min-width: 25%;
     width: 55%;
     z-index: 2;

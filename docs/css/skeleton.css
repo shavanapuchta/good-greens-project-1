@@ -26,15 +26,18 @@
 */
 /*
 #map {
-  left: 37%;
-  bottom: 20%;
+  /*left: 37%;
+  bottom: 20%;*/
   position: absolute;
   height: 400px;
   width: 50%;
   z-index: 2;
   border: #30A960;
+  align-self: center;
   border-style: solid;
   border-width: 10px;
+  left: 25%;
+  top: 20%;
 }
 #restaurant-list{
   position:absolute;
@@ -361,13 +364,12 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: var(--good-green);
-  background-image: url(https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg);
+  color: var(--good-green); 
+  background-image: url('/images/Lemonade_Flatline.png');
 }
 
-header {
-  background-color: white;
-}
+
+
 
 .title {
   /*-sasha*/
@@ -378,8 +380,7 @@ header {
 
 .topnav {
   position: relative;
-  text-align: right;
-  margin-right: 35px;
+  text-align: center;
 }
 
 .active {

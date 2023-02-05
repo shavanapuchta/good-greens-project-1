@@ -79,11 +79,29 @@ div.container {
   padding: 20px;
   flex-direction: column;
 }
-
+@media (min-width: 720px) {
+  .translucent-form-overlay {
+    position: relative;
+    right: 25%;
+    max-width: 350px;
+    min-width: 300px;
+    border-radius: 15px;
+  }
+}
+@media (min-width: 1000px) {
+  .translucent-form-overlay {
+    position: relative;
+    bottom: 200px;
+    max-width: 350px;
+    min-width: 300px;
+    border-radius: 15px;
+    left: 0%;
+  }
+}
 
 #map {
   position: absolute;
-  top: 50%;
+  top: 65%;
   height: 40%;
   width: 97%;
   z-index: 2;
@@ -91,16 +109,58 @@ div.container {
   border-style: solid;
   border-width: 10px;
 }
+@media (min-width: 720px){
+  #map {
+    top: 13%;
+    left: 41%;
+    height: 50%;
+    width: 55%;
+    z-index: 2;
+    border-radius: 5px;
+  }
+}
+@media (min-width: 1000px){
+  #map {
+    top: 13%;
+    left: 40%;
+    height: 50%;
+    min-width: 25%;
+    width: 55%;
+    z-index: 2;
+    border: #30A960;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 10px;
+  }
+
+}
 
 
 .searched-rest {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 15px;
   position: absolute;
-  top: 95%;
+  top: 110%;
   width: 100%;
 }
+@media (min-width: 720px) {
+  .searched-rest {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    top: 70%;
+    right: 2%;
+  }
 
+}
+@media (min-width: 1000px) {
+  .searched-rest {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    top: 70%;
+  }
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -623,38 +683,6 @@ label>.label-body {
     margin-right: 70px;
   }
 
-
-  .translucent-form-overlay {
-    position: relative;
-    right: 25%;
-    max-width: 350px;
-    min-width: 300px;
-    border-radius: 15px;
-  }
-
-
-  #map {
-    position: absolute;
-    top: 10%;
-    left: 41%;
-    height: 40%;
-    min-width: 25%;
-    width: 55%;
-    z-index: 2;
-    border: #30A960;
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 10px;
-  }
-
-
-  .searched-rest {
-    position: absolute;
-    display: inline-block;
-    text-align: center;
-    top: 55%;
-    right: 2%;
-  }
 }
 
 /*for desktops -sasha*/
@@ -667,39 +695,6 @@ label>.label-body {
 
   div.one-half.column {
     margin-top: 25%;
-  }
-
-
-  .translucent-form-overlay {
-    position: relative;
-    bottom: 200px;
-    max-width: 350px;
-    min-width: 300px;
-    border-radius: 15px;
-    left: 0%;
-  }
-
-
-  .searched-rest {
-    position: absolute;
-    display: inline-block;
-    text-align: center;
-    top: 70%;
-  }
-
-
-  #map {
-    position: absolute;
-    top: 13%;
-    left: 40%;
-    height: 50%;
-    min-width: 25%;
-    width: 55%;
-    z-index: 2;
-    border: #30A960;
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 10px;
   }
 }
 

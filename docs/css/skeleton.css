@@ -83,7 +83,7 @@ div.container {
 
 #map {
   position: absolute;
-  top: 45%;
+  top: 50%;
   height: 40%;
   width: 97%;
   z-index: 2;
@@ -97,7 +97,7 @@ div.container {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 15px;
   position: absolute;
-  top: 90%;
+  top: 95%;
   width: 100%;
 }
 
@@ -123,7 +123,7 @@ div.container {
 /* For devices larger than 400px */
 @media (min-width: 400px) {
   .container {
-    width: 85%;
+    width: 100%;
     padding: 0;
   }
 }
@@ -580,11 +580,9 @@ label>.label-body {
 
 /*search form --added by Sasha*/
 .translucent-form-overlay {
-  max-width: 500px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
-  border-radius: 15px;
 }
 
 .translucent-form-overlay .columns.row {

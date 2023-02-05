@@ -109,10 +109,30 @@ function addPlaces(places, map) {
       })
       const li = document.createElement("li");
 
-      li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: " + place.rating + " Stars <br> Price: " + place.price_level + "/5" + "<br>" + place.photos[0].html_attributions;;
+      li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<br> Rating: " + place.rating + " Stars <br> Price: " + place.price_level + "/5" + "<br>" + ;
       placesList.appendChild(li);
       li.addEventListener("click", () => {
         map.setCenter(place.geometry.location);
+
+        // if (place.rating < 1.5) {
+        //   place.rating.style.color = "violet"
+        // }
+        // if (place.rating >= 1.5 && < 2.5) {
+        //   place.rating.style.color = "red"
+
+        // }
+        // if (place.rating >= 2.5 && place.rating <3.5) {
+        //   place.rating.style.color = "yellow"
+
+        // }
+        // if (place.rating >= 3.5 && place.rating <4.5) {
+        //   place.rating.style.color = "red"
+
+        // }
+        // if (place.rating >= 4.5) {
+        //   place.rating.style.color = "red"
+
+        // }
 
 
       });

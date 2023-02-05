@@ -476,7 +476,7 @@ label > .label-body {
     position: absolute;
     display: inline-block;
     text-align: center;
-    top: 100%;
+    top: 55%;
     right: 2%;
   }
 }
@@ -506,9 +506,9 @@ label > .label-body {
   
     .searched-rest {
       position: absolute;
-      display: inline-block;
-      text-align: center;
-      top: 50%;
+    display: inline-block;
+    text-align: center;
+    top: 58%;
     }
   
   

@@ -64,6 +64,8 @@ header{
   padding-top: 5%;
 }
 
+
+
 :root{
   --good-green: #30A960;
 }
@@ -75,11 +77,21 @@ header{
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
   position: static;
-  width: 33%;
+  width: 45%;
   padding: 0 20px;
   top: 15%;
   z-index: 2;
  }
+ @media(min-width:720px){
+ .container {
+  width: 33%;
+ }
+}
+@media(min-width:1000px){
+  .container {
+    width: 25%;
+  }
+}
 .column,
 .columns {
   width: 100%;

@@ -25,34 +25,15 @@
 - Media Queries
 */
 
-#map {
-  left: 37%;
-  bottom: 20%;
-  position: absolute;
-  height: 400px;
-  width: 50%;
-  z-index: 2;
-  border: #30A960;
-  align-self: center;
-  border-style: solid;
-  border-width: 10px;
-  left: 25%;
-  top: 20%;
-}
-#restaurant-list{
-  position:absolute;
-  width: 100%;
-  top: 82%;
-  display: inline-grid;
-  align-content: end;
-  justify-content: center;
-}
+
+
+
 /*weirdness ends*/
 :root {
   --good-green: #30A960;
 }
 
-body{
+body {
   background-image: url("/images/sushi.png");
 }
 
@@ -83,6 +64,7 @@ div.container {
   padding: 20px;
   flex-direction: column;
 }
+
 @media (min-width: 720px) {
   .translucent-form-overlay {
     position: relative;
@@ -92,6 +74,7 @@ div.container {
     border-radius: 15px;
   }
 }
+
 @media (min-width: 1000px) {
   .translucent-form-overlay {
     position: relative;
@@ -106,15 +89,17 @@ div.container {
 
 #map {
   position: absolute;
-  top: 65%;
+  top: 55%;
   height: 40%;
+  left: 0%;
   width: 97%;
   z-index: 2;
   border: #30A960;
   border-style: solid;
   border-width: 10px;
 }
-@media (min-width: 720px){
+
+@media (min-width: 720px) {
   #map {
     top: 13%;
     left: 41%;
@@ -124,7 +109,8 @@ div.container {
     border-radius: 5px;
   }
 }
-@media (min-width: 1000px){
+
+@media (min-width: 1000px) {
   #map {
     top: 13%;
     left: 40%;
@@ -142,12 +128,17 @@ div.container {
 
 
 .searched-rest {
+  position: absolute;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 15px;
-  position: absolute;
-  top: 110%;
   width: 100%;
+  top: 100%;
+  display: inline-grid;
+  align-content: end;
+  justify-content: center;
+
 }
+
 @media (min-width: 720px) {
   .searched-rest {
     position: absolute;
@@ -158,6 +149,7 @@ div.container {
   }
 
 }
+
 @media (min-width: 1000px) {
   .searched-rest {
     position: absolute;
@@ -364,8 +356,8 @@ body {
   /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: var(--good-green); 
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--good-green);
 }
 
 
@@ -693,51 +685,53 @@ label>.label-body {
     margin: 0;
     justify-content: flex-start;
   }
-  
-  .translucent-form-overlay input, .translucent-form-overlay select {
+
+  .translucent-form-overlay input,
+  .translucent-form-overlay select {
     color: #8a8a8a;
   }
-  
+
   .translucent-form-overlay input::-webkit-input-placeholder {
     color: #8a8a8a;
   }
-  
+
   .translucent-form-overlay input:-ms-input-placeholder {
     color: #8a8a8a;
   }
-  
+
   .translucent-form-overlay input::placeholder {
     color: #8a8a8a;
   }
-  #more{
+
+  #more {
     display: inline-block;
   }
-  #addfavorite{
+
+  #addfavorite {
     position: absolute;
     right: 20%;
     margin-bottom: 5px;
   }
+
   /*for devices wider than 550px -sasha -- POTENTIAL PROBLEM BELOW!!! */
-  @media (min-width: 650px){
-    div.container{
+  @media (min-width: 650px) {
+    div.container {
       margin: 0;
       justify-content: flex-start;
-      
+
     }
-    div.one-half.column{
+
+    div.one-half.column {
       margin-top: 25%;
     }
-    .translucent-form-overlay{
+
+    .translucent-form-overlay {
       margin: 2px 50px 20px 0;
       position: relative;
       bottom: 180px;
       max-width: 350px;
     }
-    .searched-rest{
-      display: inline-block;
-      position: relative;
-      top: 60px;
-    }
+
   }
 }
 
@@ -767,7 +761,7 @@ ol ul {
 }
 
 li {
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
   border-bottom: 1px dotted #30A960;
   width: 90%;
 }

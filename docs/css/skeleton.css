@@ -42,7 +42,10 @@
 #restaurant-list{
   position:absolute;
   width: 100%;
-  top: 82%
+  top: 82%;
+  display: inline-grid;
+  align-content: end;
+  justify-content: center;
 }
 :root{
   --good-green: #30A960;
@@ -405,7 +408,6 @@ label > .label-body {
     }
     .searched-rest{
       display: inline-block;
-      text-align: center;
       position: relative;
       top: 60px;
     }
@@ -427,7 +429,10 @@ ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
   font-size: 90%; }
 li {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem; 
+  border-bottom: 1px dotted #30A960;
+  width: 90%;
+}
 
 
 /* Code

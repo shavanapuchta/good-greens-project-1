@@ -109,6 +109,23 @@ if(vegetariancheck.checked == true && vegancheck.checked == false){
       }
     }
   )
+}else if (vegancheck.checked == true && vegetariancheck.checked == true){
+  service.nearbySearch(
+    { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian" },
+    (results, status, pagination) => {
+      if (status !== "OK" || !results) return;
+
+      // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
+
+      addPlaces(results, map);
+      moreButton.disabled = !pagination || !pagination.hasNextPage;
+      if (pagination && pagination.hasNextPage) {
+        getNextPage = () => {
+          pagination.nextPage();
+        }
+      }
+    }
+  )
 }
 }
 

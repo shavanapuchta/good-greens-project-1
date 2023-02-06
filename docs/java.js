@@ -23,8 +23,8 @@ var cal = "California"
 searchBtn.addEventListener("click", function () {
   //var cityName = document.querySelector("#googlesearch").value
   //console.log(cityName)
-  var stateName = document.querySelector('select[name="state"]').value
-  console.log(stateName)
+  //var stateName = document.querySelector('select[name="state"]').value
+  //console.log(stateName)
   searchCity()
   var coo = JSON.parse(localStorage.getItem("city"));
   console.log(coo);
@@ -36,8 +36,11 @@ searchBtn.addEventListener("click", function () {
 // We use the openweather API to get the latitude and longitude of a city and use this to feed to the google API for our searches. 
 
 function searchCity() {
-  var cityName = document.querySelector("#googlesearch").value
+  var cityName = document.querySelector("#googlesearch").value;
   console.log(cityName);
+  var zip = document.getElementById("zip").value;
+  console.log(zip);
+  if (zip == ""){
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + weatherKey;
   console.log(queryURL)
   fetch(queryURL).then(function (response) {
@@ -53,6 +56,23 @@ function searchCity() {
       localStorage.setItem("city", JSON.stringify(coord));
       initMap(coord);
     })
+  } else {
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + weatherKey;
+    console.log(queryURL)
+    fetch(queryURL).then(function (response) {
+      console.log(response)
+      return response.json()
+  
+    })
+      .then(function (data) {
+  
+        console.log(data);
+        coord = { lat: data.coord.lat, lng: data.coord.lon };
+        console.log(coord)
+        localStorage.setItem("city", JSON.stringify(coord));
+        initMap(coord);
+      })
+  }
 }
 
 function initMap(ev) {

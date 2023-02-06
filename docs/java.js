@@ -1,7 +1,6 @@
 //var APIkey = "AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc"
 
 var weatherKey = "4b68235b6d97901e4e6eb2b454a04dd0";
-
 var map;
 var service;
 var infowindow;
@@ -9,11 +8,16 @@ var searchBtn = document.querySelector(".search-button");
 document.querySelector("#googlesearch").value = "San Diego";
 searchCity();
 
+// Displays the city of San Diego and vegetarian/vegan restaurants on the map when opening the website.
+
 var coord = { lat: 32.11, lng: -117.32 }
 console.log(coord)
 var daygo = "San Diego"
 var cal = "California"
 //searchCity(daygo);
+
+// Runs the searchCity function after we select our city and click search. 
+
 searchBtn.addEventListener("click", function () {
   //var cityName = document.querySelector("#googlesearch").value
   //console.log(cityName)
@@ -26,6 +30,9 @@ searchBtn.addEventListener("click", function () {
   //console.log(JSON.parse(storedcity));
 
 })
+
+// We use the openweather API to get the latitude and longitude of a city and use this to feed to the google API for our searches. 
+
 function searchCity() {
   var cityName = document.querySelector("#googlesearch").value
   console.log(cityName);
@@ -56,6 +63,8 @@ function initMap(ev) {
   let getNextPage;
   const moreButton = document.getElementById("more");
 
+  // Displays more restaurant results at the bottom of the page when we click the "more results button"  
+
   moreButton.onclick = function () {
     moreButton.disabled = true;
     if (getNextPage) {
@@ -63,10 +72,14 @@ function initMap(ev) {
     }
   };
 
+  // Parameters we use to narrow down our nearby search. Searches within a 5000 meter radius for vegetarian restaurants.
+
   service.nearbySearch(
     { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian" },
     (results, status, pagination) => {
       if (status !== "OK" || !results) return;
+
+      // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
 
       addPlaces(results, map);
       moreButton.disabled = !pagination || !pagination.hasNextPage;

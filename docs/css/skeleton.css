@@ -85,18 +85,43 @@ header {
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+#googlesearch {
+  width:170px;
+  
+  }
+@media(min-width: 720px){
+  #googlesearch {
+    width:200px; /*720px*/
+    }
+}
+@media(min-width: 1000px){
+#googlesearch {
+width:220px;
+}
+}
+
+
+#zip {
+  width:170px;
+  
+  }
+@media(min-width: 720px){
+  #zip {
+    width:200px; /*720px*/
+    }
+}
+@media(min-width: 1000px){
+  #zip {
+width:220px;
+}
+}
+
 .container {
   position: static;
-  width: 45%;
+  width: 35%;
   padding: 0 20px;
   top: 15%;
   z-index: 2;
-}
-
-@media(min-width:720px) {
-  .container {
-    width: 33%;
-  }
 }
 
 @media(min-width:1000px) {
@@ -104,6 +129,7 @@ header {
     width: 25%;
   }
 }
+
 
 .column,
 .columns {

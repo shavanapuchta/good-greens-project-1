@@ -66,12 +66,19 @@ header {
   padding-top: 5%;
 }
 
-@media(min-width:720px) {
 
+
+@media(max-width:1350px) {
+  #restaurant-list{
+    top: 90%;
+    padding-top: 10%;
+  }
 }
-
-@media(min-width:1000px) {
-  
+@media(max-width:1000px) {
+  #restaurant-list{
+    top: 90%;
+    padding-top: 20%;
+  }
 }
 
 
@@ -723,7 +730,11 @@ there.
 @media (min-width: 400px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 650px) {}
+@media (max-width: 650px) {
+  #restaurant-list{
+    padding-top: 35%;
+  }
+}
 
 /* Larger than tablet */
 @media (min-width: 750px) {}

@@ -6,6 +6,8 @@ var service;
 var infowindow;
 var searchBtn = document.querySelector(".search-button");
 document.querySelector("#googlesearch").value = "San Diego";
+var vegetariancheck = document.getElementById("veg1");
+var vegancheck = document.getElementById("veg2");
 searchCity();
 
 // Displays the city of San Diego and vegetarian/vegan restaurants on the map when opening the website.
@@ -73,7 +75,7 @@ function initMap(ev) {
   };
 
   // Parameters we use to narrow down our nearby search. Searches within a 5000 meter radius for vegetarian restaurants.
-
+if(vegetariancheck.checked == true && vegancheck.checked == false){
   service.nearbySearch(
     { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian" },
     (results, status, pagination) => {
@@ -90,6 +92,24 @@ function initMap(ev) {
       }
     }
   )
+} else if(vegancheck.checked == true && vegetariancheck.checked == false){
+  service.nearbySearch(
+    { location: ev, radius: 5000, type: "restaurant", keyword: "Vegan" },
+    (results, status, pagination) => {
+      if (status !== "OK" || !results) return;
+
+      // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
+
+      addPlaces(results, map);
+      moreButton.disabled = !pagination || !pagination.hasNextPage;
+      if (pagination && pagination.hasNextPage) {
+        getNextPage = () => {
+          pagination.nextPage();
+        }
+      }
+    }
+  )
+}
 }
 
 function addPlaces(places, map) {

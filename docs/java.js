@@ -341,7 +341,7 @@ function storeFavorites(event) {
   console.log(event.target.getAttribute("data-placeId"))
   var favoriteList = JSON.parse(localStorage.getItem("Favorites")) || [];
   favoriteList.push(event.target.getAttribute("data-placeId"))
-  localStorage.setItem("Favortes", JSON.stringify(favoriteList))
+  localStorage.setItem("Favorites", JSON.stringify(favoriteList))
   alert("Restaurant saved to favorites")
 }
 

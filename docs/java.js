@@ -1,4 +1,4 @@
-//var APIkey = "AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc"
+var APIkey = "AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc"
 
 var weatherKey = "4b68235b6d97901e4e6eb2b454a04dd0";
 var map;
@@ -40,32 +40,32 @@ function searchCity() {
   console.log(cityName);
   var zip = document.getElementById("zip").value;
   console.log(zip);
-  if (zip == ""){
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + weatherKey;
-  console.log(queryURL)
-  fetch(queryURL).then(function (response) {
-    console.log(response)
-    return response.json()
+  if (zip == "") {
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + weatherKey;
+    console.log(queryURL)
+    fetch(queryURL).then(function (response) {
+      console.log(response)
+      return response.json()
 
-  })
-    .then(function (data) {
-
-      console.log(data);
-      coord = { lat: data.coord.lat, lng: data.coord.lon };
-      console.log(coord)
-      localStorage.setItem("city", JSON.stringify(coord));
-      initMap(coord);
     })
+      .then(function (data) {
+
+        console.log(data);
+        coord = { lat: data.coord.lat, lng: data.coord.lon };
+        console.log(coord)
+        localStorage.setItem("city", JSON.stringify(coord));
+        initMap(coord);
+      })
   } else {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + weatherKey;
     console.log(queryURL)
     fetch(queryURL).then(function (response) {
       console.log(response)
       return response.json()
-  
+
     })
       .then(function (data) {
-  
+
         console.log(data);
         coord = { lat: data.coord.lat, lng: data.coord.lon };
         console.log(coord)
@@ -95,61 +95,62 @@ function initMap(ev) {
   };
 
   // Parameters we use to narrow down our nearby search. Searches within a 5000 meter radius for vegetarian restaurants.
-if(vegetariancheck.checked == true && vegancheck.checked == false){
-  service.nearbySearch(
-    { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian" },
-    (results, status, pagination) => {
-      if (status !== "OK" || !results) return;
+  if (vegetariancheck.checked == true && vegancheck.checked == false) {
+    service.nearbySearch(
+      { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian" },
+      (results, status, pagination) => {
+        if (status !== "OK" || !results) return;
 
-      // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
+        // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
 
-      addPlaces(results, map);
-      moreButton.disabled = !pagination || !pagination.hasNextPage;
-      if (pagination && pagination.hasNextPage) {
-        getNextPage = () => {
-          pagination.nextPage();
+        addPlaces(results, map);
+        moreButton.disabled = !pagination || !pagination.hasNextPage;
+        if (pagination && pagination.hasNextPage) {
+          getNextPage = () => {
+            pagination.nextPage();
+          }
         }
       }
-    }
-  )
-} else if(vegancheck.checked == true && vegetariancheck.checked == false){
-  service.nearbySearch(
-    { location: ev, radius: 5000, type: "restaurant", keyword: "Vegan" },
-    (results, status, pagination) => {
-      if (status !== "OK" || !results) return;
+    )
+  } else if (vegancheck.checked == true && vegetariancheck.checked == false) {
+    service.nearbySearch(
+      { location: ev, radius: 5000, type: "restaurant", keyword: "Vegan" },
+      (results, status, pagination) => {
+        if (status !== "OK" || !results) return;
 
-      // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
+        // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
 
-      addPlaces(results, map);
-      moreButton.disabled = !pagination || !pagination.hasNextPage;
-      if (pagination && pagination.hasNextPage) {
-        getNextPage = () => {
-          pagination.nextPage();
+        addPlaces(results, map);
+        moreButton.disabled = !pagination || !pagination.hasNextPage;
+        if (pagination && pagination.hasNextPage) {
+          getNextPage = () => {
+            pagination.nextPage();
+          }
         }
       }
-    }
-  )
-}else if (vegancheck.checked == true && vegetariancheck.checked == true){
-  service.nearbySearch(
-    { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian" },
-    (results, status, pagination) => {
-      if (status !== "OK" || !results) return;
+    )
+  } else if (vegancheck.checked == true && vegetariancheck.checked == true) {
+    service.nearbySearch(
+      { location: ev, radius: 5000, type: "restaurant", keyword: "Vegetarian" },
+      (results, status, pagination) => {
+        if (status !== "OK" || !results) return;
 
-      // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
+        // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
 
-      addPlaces(results, map);
-      moreButton.disabled = !pagination || !pagination.hasNextPage;
-      if (pagination && pagination.hasNextPage) {
-        getNextPage = () => {
-          pagination.nextPage();
+        addPlaces(results, map);
+        moreButton.disabled = !pagination || !pagination.hasNextPage;
+        if (pagination && pagination.hasNextPage) {
+          getNextPage = () => {
+            pagination.nextPage();
+          }
         }
       }
-    }
-  )
-}
+    )
+  }
 }
 
 function addPlaces(places, map) {
+  console.log(places)
   const placesList = document.getElementById("places");
 
   for (const place of places) {
@@ -180,126 +181,125 @@ function addPlaces(places, map) {
       const li = document.createElement("li");
 
       // Displays stars underneath the restaurant that correspond with the restaurant's respective rating as well as a dollar sign based on how expensive the food is. Google's API provides us with both the ratings and the price level.
-
       if (place.price_level == 1) {
         if (place.rating < 1.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $ <br>";
         } else if (place.rating >= 1.3 && place.rating < 1.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $ <br>";
         } else if (place.rating >= 1.7 && place.rating < 2.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: $ <br>";
         } else if (place.rating >= 2.3 && place.rating < 2.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $ <br>";
         } else if (place.rating >= 2.7 && place.rating < 3.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $ <br>";
         } else if (place.rating >= 3.3 && place.rating < 3.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $ <br>";
         } else if (place.rating >= 3.7 && place.rating < 4.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $ <br>";
         } else if (place.rating >= 4.3 && place.rating < 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $ <br>";
         } else if (place.rating >= 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $ <br>";
         }
       } else if (place.price_level == 2) {
         if (place.rating < 1.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $$ <br>";
         } else if (place.rating >= 1.3 && place.rating < 1.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$ <br>";
         } else if (place.rating >= 1.7 && place.rating < 2.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: $$ <br>";
         } else if (place.rating >= 2.3 && place.rating < 2.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$ <br>";
         } else if (place.rating >= 2.7 && place.rating < 3.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $$ <br>";
         } else if (place.rating >= 3.3 && place.rating < 3.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$ <br>";
         } else if (place.rating >= 3.7 && place.rating < 4.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$ <br>";
         } else if (place.rating >= 4.3 && place.rating < 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$ <br>";
         } else if (place.rating >= 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$ <br>";
         }
       } else if (place.price_level == 3) {
         if (place.rating < 1.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $$$ <br>";
         } else if (place.rating >= 1.3 && place.rating < 1.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$ <br>";
         } else if (place.rating >= 1.7 && place.rating < 2.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: $$$ <br>";
         } else if (place.rating >= 2.3 && place.rating < 2.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$ <br>";
         } else if (place.rating >= 2.7 && place.rating < 3.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $$$ <br>";
         } else if (place.rating >= 3.3 && place.rating < 3.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$$ <br>";
         } else if (place.rating >= 3.7 && place.rating < 4.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$$ <br>";
         } else if (place.rating >= 4.3 && place.rating < 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$ <br>";
         } else if (place.rating >= 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$$ <br>";
         }
       } else if (place.price_level == 4) {
         if (place.rating < 1.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $$$$ <br>";
         } else if (place.rating >= 1.3 && place.rating < 1.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$ <br>";
         } else if (place.rating >= 1.7 && place.rating < 2.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: $$$$ <br>";
         } else if (place.rating >= 2.3 && place.rating < 2.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$$ <br>";
         } else if (place.rating >= 2.7 && place.rating < 3.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $$$$ <br>";
         } else if (place.rating >= 3.3 && place.rating < 3.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price:  $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price:  $$$$ <br>";
         } else if (place.rating >= 3.7 && place.rating < 4.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price:  $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price:  $$$$ <br>";
         } else if (place.rating >= 4.3 && place.rating < 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price:  $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price:  $$$$ <br>";
         } else if (place.rating >= 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price:  $$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price:  $$$$ <br>";
         }
       } else if (place.price_level == 5) {
         if (place.rating < 1.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price: $$$$$ <br>";
         } else if (place.rating >= 1.3 && place.rating < 1.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$$ <br>";
         } else if (place.rating >= 1.7 && place.rating < 2.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price:  $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price:  $$$$$ <br>";
         } else if (place.rating >= 2.3 && place.rating < 2.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$$$ <br>";
         } else if (place.rating >= 2.7 && place.rating < 3.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: $$$$$ <br>";
         } else if (place.rating >= 3.3 && place.rating < 3.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$$$$ <br>";
         } else if (place.rating >= 3.7 && place.rating < 4.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$$$$ <br>";
         } else if (place.rating >= 4.3 && place.rating < 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$$ <br>";
         } else if (place.rating >= 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$$$$ <br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$$$$ <br>";
         }
       } else if (place.price_level == undefined) {
         if (place.rating < 1.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <br> Price Not Listed" + "<br>";
         } else if (place.rating >= 1.3 && place.rating < 1.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: Price Not Listed" + "<br>";
         } else if (place.rating >= 1.7 && place.rating < 2.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf;  <br> Price: Price Not Listed" + "<br>";
         } else if (place.rating >= 2.3 && place.rating < 2.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: Price Not Listed" + "<br>";
         } else if (place.rating >= 2.7 && place.rating < 3.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <br> Price: Price Not Listed" + "<br>";
         } else if (place.rating >= 3.3 && place.rating < 3.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: Price Not Listed" + "<br>";
         } else if (place.rating >= 3.7 && place.rating < 4.3) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <br> Price: Price Not Listed" + "<br>";
         } else if (place.rating >= 4.3 && place.rating < 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: Price Not Listed" + "<br>";
         } else if (place.rating >= 4.7) {
-          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: Price Not Listed" + "<br>";
+          li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button data-placeId='" + place.place_id + "' id='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: Price Not Listed" + "<br>";
         }
       };
 

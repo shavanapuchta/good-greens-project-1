@@ -25,47 +25,60 @@
 - Media Queries
 */
 
+body{
+  display: flex;
+  flex-direction: column;
+}
+header{
+  width: 100%;
+  position:static;
+  background-color: white;
+  padding-bottom: 20px;
+  z-index: 2;
+}
 #map {
   /*left: 37%;
   bottom: 20%;*/
-  position: absolute;
-  height: 400px;
-  width: 50%;
-  z-index: 2;
-  border: #30A960;
-  align-self: center;
+  height: 80%;
+  width: 100%;
+  position:absolute !important;
+  /*border: #30A960;
+  
   border-style: solid;
-  border-width: 10px;
-  left: 25%;
-  top: 20%;
+  border-width: 10px;*/
+  
+  align-self: center;
+  border-bottom: 3px solid var(--good-green);
+  border-top: 3px solid var(--good-green);
+  /*left: 25%;*/
+  top: 15%;
 }
 #restaurant-list{
-  position:absolute;
+  position:static;
   width: 100%;
   top: 82%;
   display: inline-grid;
   align-content: end;
   justify-content: center;
+  padding-top: 5%;
 }
+
 :root{
   --good-green: #30A960;
 }
 
-body{
-  background-image: url("/images/sushi.png");
-}
 
 
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
-  position: relative;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
+  position: static;
+  width: 33%;
   padding: 0 20px;
-  box-sizing: border-box; }
+  top: 15%;
+  z-index: 2;
+ }
 .column,
 .columns {
   width: 100%;
@@ -73,14 +86,14 @@ body{
   box-sizing: border-box; }
 
 /* For devices larger than 400px */
-@media (min-width: 400px) {
+/*@media (min-width: 400px) {
   .container {
     width: 85%;
     padding: 0; }
 }
 
 /* For devices larger than 550px */
-@media (min-width: 650px) {
+/*@media (min-width: 650px) {
   .container {
     width: 80%; }
   .column,
@@ -109,7 +122,7 @@ body{
 
   .one-half.column                { width: 48%; }
 
-  /* Offsets */
+  /* Offsets *//*
   .offset-by-one.column,
   .offset-by-one.columns          { margin-left: 8.66666666667%; }
   .offset-by-two.column,
@@ -142,7 +155,6 @@ body{
   .offset-by-one-half.columns     { margin-left: 52%; }
 
 }
-
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -183,6 +195,7 @@ body {
 div.container{
 align-items: center;
 margin-top: 0%;
+padding-top: 5%;
 }
 
 .searched-rest {
@@ -391,7 +404,7 @@ label > .label-body {
     margin-bottom: 5px;
   }
   /*for devices wider than 550px -sasha*/
-  @media (min-width: 650px){
+  /*@media (min-width: 650px){
     div.container{
       margin: 0;
       justify-content: flex-start;
@@ -538,7 +551,9 @@ there.
 @media (min-width: 650px) {}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 750px) {
+
+}
 
 /* Larger than desktop */
 @media (min-width: 1000px) {}

@@ -339,9 +339,9 @@ function addPlaces(places, map) {
 
 function storeFavorites(event) {
   console.log(event.target.getAttribute("data-placeId"))
-  var favoriteList = JSON.parse(localStorage.getItem("Favorites")) || [];
+  var favoriteList = JSON.parse(localStorage.getItem("favorites")) || [];
   favoriteList.push(event.target.getAttribute("data-placeId"))
-  localStorage.setItem("Favorites", JSON.stringify(favoriteList))
+  localStorage.setItem("favorites", JSON.stringify(favoriteList))
   alert("Restaurant saved to favorites")
 }
 

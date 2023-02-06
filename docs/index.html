@@ -48,14 +48,15 @@
           <form class="container">
             <h3>Search for Restaurants</h3>
             <p class="active">Options:</p>
+            <label for="veg1">Vegetarian</label>
             <input
+              value="vegetarian"
               type="checkbox"
               name="options"
               id="veg1"
-              value="vegetarian"
               onclick="return ValidateSelection();"
             />
-            <label for="veg1">Vegetarian</label>
+            <label for="veg2">Vegan</label>
             <input
               type="checkbox"
               name="options"
@@ -63,7 +64,6 @@
               value="vegan"
               onclick="return ValidateSelection();"
             />
-            <label for="veg2">Vegan</label>
             <div class="row columns">
               <label
                 >City

@@ -233,7 +233,7 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  display: inline-block;
+  display: flex;
   height: 38px;
   padding: 0 30px;
   color: white;
@@ -378,6 +378,14 @@ label > .label-body {
   
   .translucent-form-overlay input::placeholder {
     color: #8a8a8a;
+  }
+  #more{
+    display: inline-block;
+  }
+  #addfavorite{
+    position: absolute;
+    right: 20%;
+    margin-bottom: 5px;
   }
   /*for devices wider than 550px -sasha*/
   @media (min-width: 650px){

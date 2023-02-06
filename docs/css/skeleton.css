@@ -42,7 +42,10 @@
 #restaurant-list{
   position:absolute;
   width: 100%;
-  top: 82%
+  top: 82%;
+  display: inline-grid;
+  align-content: end;
+  justify-content: center;
 }
 /*weirdness ends*/
 :root {
@@ -500,7 +503,7 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  display: inline-block;
+  display: flex;
   height: 38px;
   padding: 0 30px;
   color: white;
@@ -690,10 +693,51 @@ label>.label-body {
     margin: 0;
     justify-content: flex-start;
   }
-
-
-  div.one-half.column {
-    margin-top: 25%;
+  
+  .translucent-form-overlay input, .translucent-form-overlay select {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input::-webkit-input-placeholder {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input:-ms-input-placeholder {
+    color: #8a8a8a;
+  }
+  
+  .translucent-form-overlay input::placeholder {
+    color: #8a8a8a;
+  }
+  #more{
+    display: inline-block;
+  }
+  #addfavorite{
+    position: absolute;
+    right: 20%;
+    margin-bottom: 5px;
+  }
+  /*for devices wider than 550px -sasha -- POTENTIAL PROBLEM BELOW!!! */
+  @media (min-width: 650px){
+    div.container{
+      margin: 0;
+      justify-content: flex-start;
+      
+    }
+    div.one-half.column{
+      margin-top: 25%;
+    }
+    .translucent-form-overlay{
+      margin: 2px 50px 20px 0;
+      position: relative;
+      bottom: 180px;
+      max-width: 350px;
+    }
+    .searched-rest{
+      display: inline-block;
+      position: relative;
+      top: 60px;
+    }
   }
 }
 
@@ -723,7 +767,9 @@ ol ul {
 }
 
 li {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; 
+  border-bottom: 1px dotted #30A960;
+  width: 90%;
 }
 
 

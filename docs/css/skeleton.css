@@ -35,6 +35,7 @@ header{
   background-color: white;
   padding-bottom: 20px;
   z-index: 2;
+  text-align: center;
 }
 #map {
   /*left: 37%;

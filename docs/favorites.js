@@ -5,6 +5,7 @@
 var APIkey = "AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc";
 var weatherKey = "4b68235b6d97901e4e6eb2b454a04dd0";
 var marker;
+var map;
 // Grabs favorites array from local storage
 var favoritesList = JSON.parse(localStorage.getItem("favorites")) || [];
 
@@ -18,63 +19,60 @@ function initMap() {
         zoom: 13,
         mapId: "5e79efcdf99d1225",
     });
-}
-// Create function that loops through favoriteList and grabs each placeID  
 
-for (let i = 0; i < favoritesList.length; i++) {
-    console.log(favoritesList[i]);
 
-    var request = {
-        placeId: [i],
-        fields: ["name", "formatted_address", "place_id", "geometry"],
-    };
-    console.log(request)
-}
-const infowindow = new google.maps.InfoWindow();
-const service = new google.maps.places.PlacesService(map);
 
-service.getDetails(request, (place, status) => {
-    if (
-        status === google.maps.places.PlacesServiceStatus.OK &&
-        place &&
-        place.geometry &&
-        place.geometry.location
-    ) {
-        const marker = new google.maps.Marker({
+
+    // Create function that loops through favoriteList and grabs each placeID  
+    for (let i = 0; i < favoritesList.length; i++) {
+        console.log(favoritesList[i]);
+
+        var request = {
+            placeId: favoritesList[i],
+            fields: ["name", "formatted_address", "price_level", "rating"]
+        };
+        console.log(request)
+
+        const service = new google.maps.places.PlacesService(map);
+
+        service.getDetails(request, callback);
+        function callback(place, status) {
+            if (
+                status == google.maps.places.PlacesServiceStatus.OK) {
+                console.log(status);
+                console.log(place);
+                createMarker(place);
+            }
+        }
+    }
+
+    function createMarker(place) {
+        const placesList = document.getElementById("favorites")
+        const li = document.createElement("li");
+        placesList.appendChild(li);
+        li.innerHTML = place.name + place.formatted_address + place.price_level + place.rating
+
+        if (!place.geometry || !place.geometry.location) return;
+
+        marker = new google.maps.Marker({
             map,
             position: place.geometry.location,
         });
+
     }
-})
 
-function createMarker(place) {
-    if (!place.geometry || !place.geometry.location) return;
-
-    marker = new google.maps.Marker({
-        map,
-        position: place.geometry.location,
-    });
 
 }
+
+
+function addFavorites(places, map) {
+
+
+}
+console.log(favoritesList)
 
 
 window.initMap = initMap();
-
-
-
-function addFavorites() {
-    console.log(favoritesList)
-
-    const favoritesListElement = document.getElementById("favorites");
-
-    // for (const place of places) {
-    const li = document.createElement("li");
-
-    li.innerHTML = favoritesList + " did I do that?"
-}
-
-
-
 
 
 

@@ -6,6 +6,7 @@ var APIkey = "AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc";
 var weatherKey = "4b68235b6d97901e4e6eb2b454a04dd0";
 var marker;
 var map;
+
 // Grabs favorites array from local storage
 var favoritesList = JSON.parse(localStorage.getItem("favorites")) || [];
 
@@ -20,16 +21,13 @@ function initMap() {
         mapId: "5e79efcdf99d1225",
     });
 
-
-
-
     // Create function that loops through favoriteList and grabs each placeID  
     for (let i = 0; i < favoritesList.length; i++) {
         console.log(favoritesList[i]);
 
         var request = {
             placeId: favoritesList[i],
-            fields: ["name", "formatted_address", "price_level", "rating"]
+            fields: ["name", "formatted_address", "price_level", "rating", "place_id", "geometry"]
         };
         console.log(request)
 
@@ -38,7 +36,10 @@ function initMap() {
         service.getDetails(request, callback);
         function callback(place, status) {
             if (
-                status == google.maps.places.PlacesServiceStatus.OK) {
+                status == google.maps.places.PlacesServiceStatus.OK &&
+                place &&
+                place.geometry &&
+                place.geometry.location) {
                 console.log(status);
                 console.log(place);
                 createMarker(place);
@@ -60,14 +61,8 @@ function initMap() {
 
     }
 
-
 }
 
-
-function addFavorites(places, map) {
-
-
-}
 console.log(favoritesList)
 
 

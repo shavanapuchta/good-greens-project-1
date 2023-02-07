@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <!-- Basic Page Needs
+  <head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Favorites</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8" />
+    <title>Favorites</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-  <!-- Mobile Specific Metas
+    <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- FONT
+    <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link
+      href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-  <!-- CSS
+    <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/skeleton.css" />
 
-  <!-- Favicon
+    <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
-</head>
-<body class="favorites-background-image">
-  <h1 class="favorites-nav">
-    <nav>
-      <a class="active" href="index.html">Find Restaurants  |</a>
-      <a class="active" href="about-index.html">   About Us   |</a>
-      <a class="active" href="favorites-index.html">  Favorites</a>
-    </nav>
-  </h1>
-    <h2 class="favorites-header">Favorites List <img src="images/goodgreens-logo-reversed.png" alt="whimsical leaf logo" width="63px" height="63px"></h2>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+  </head>
+  <body class="favorites-background-image">
+    <h1 class="favorites-nav">
+      <nav>
+        <a class="active" href="index.html">Find Restaurants |</a>
+        <a class="active" href="about-index.html"> About Us |</a>
+        <a class="active" href="favorites-index.html"> Favorites</a>
+      </nav>
+    </h1>
+    <h2 class="favorites-header">
+      Favorites List
+      <img
+        src="images/goodgreens-logo-reversed.png"
+        alt="whimsical leaf logo"
+        width="63px"
+        height="63px"
+      />
+    </h2>
     <div id="favorites-list-container">
-      <p class="list-group-2">
-        List goes here...
-      </p>
+      <div id="map"></div>
+      <ul id="favorites"></ul>
     </div>
-</body>
-
+  </body>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc&libraries=places&callback=initMap"
+    defer
+  ></script>
+  <script src="favorites.js"></script>
 </html>

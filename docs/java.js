@@ -329,6 +329,4 @@ function storeFavorites(event) {
 window.initMap = initMap();
 
 
-//service.textSearch(request, callback);
 
-// https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}

@@ -66,12 +66,11 @@ header {
   padding-top: 5%;
 }
 
-@media(min-width:720px) {
-
-}
+@media(min-width:720px) {}
 
 @media(min-width:1000px) {
-  
+  position: absolute;
+  top: 102%;
 }
 
 
@@ -85,34 +84,40 @@ header {
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 #googlesearch {
-  width:170px;
-  
-  }
-@media(min-width: 720px){
+  width: 170px;
+
+}
+
+@media(min-width: 720px) {
   #googlesearch {
-    width:200px; /*720px*/
-    }
+    width: 200px;
+    /*720px*/
+  }
 }
-@media(min-width: 1000px){
-#googlesearch {
-width:220px;
-}
+
+@media(min-width: 1000px) {
+  #googlesearch {
+    width: 220px;
+  }
 }
 
 
 #zip {
-  width:170px;
-  
+  width: 170px;
+
+}
+
+@media(min-width: 720px) {
+  #zip {
+    width: 200px;
+    /*720px*/
   }
-@media(min-width: 720px){
-  #zip {
-    width:200px; /*720px*/
-    }
 }
-@media(min-width: 1000px){
+
+@media(min-width: 1000px) {
   #zip {
-width:220px;
-}
+    width: 220px;
+  }
 }
 
 .container {

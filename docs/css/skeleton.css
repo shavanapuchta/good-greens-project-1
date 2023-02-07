@@ -63,7 +63,7 @@ header {
   display: inline-grid;
   align-content: end;
   justify-content: center;
-  padding-top: 5%;
+  padding-top: 15%;
 }
 
 @media(min-width:720px) {
@@ -144,18 +144,11 @@ header {
 
 .container {
   position: static;
-  width: 35%;
   padding: 0 20px;
   top: 15%;
   z-index: 2;
+  padding-top: 5%;
 }
-
-@media(min-width:1000px) {
-  .container {
-    width: 25%;
-  }
-}
-
 
 .column,
 .columns {
@@ -278,7 +271,6 @@ body {
 div.container {
   align-items: center;
   margin-top: 0%;
-  padding-top: 5%;
 }
 
 .searched-rest {
@@ -530,7 +522,7 @@ label>.label-body {
 
 /*search form --added by Sasha*/
 .translucent-form-overlay {
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
@@ -750,13 +742,57 @@ there.
 @media (min-width: 320px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 650px) {}
+@media (max-width: 650px) {
+  #restaurant-list{
+    padding-top: 35%;
+  }
+}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+
 
 /* Larger than desktop */
-@media (min-width: 1000px) {}
+@media (max-width: 1600px) {
+  .container{
+    padding-top: 5.8%;
+  }
+}
 
 /* Larger than Desktop HD */
-@media (min-width: 1200px) {}
+@media (max-width: 1300px) {
+  .container{
+    padding-top: 7%;
+  }
+  .translucent-form-overlay {
+    max-width: 300px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+  }
+}
+@media (max-width: 1050px) {
+  .container{
+    padding-top: 8.7%;
+  }
+  .translucent-form-overlay {
+    max-width: 300px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 780px) {
+  .container{
+    padding-top: 11%;
+  }
+  .translucent-form-overlay {
+    max-width: 200px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+  }
+}

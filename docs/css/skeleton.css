@@ -63,7 +63,6 @@ header {
   display: inline-grid;
   align-content: end;
   justify-content: center;
-  padding-top: 15%;
 }
 
 @media(min-width:720px) {
@@ -582,12 +581,30 @@ label>.label-body {
   text-align: center;
 }
 
-.list-group-2 {
+/*favorites page list formatting*/
+
+#favorites-list-container {
   background-color: rgba(255, 255, 255, 0.8);
+  width: 85%;
+  border-radius: 15px;
+  margin: 0 auto;
+padding: 10px;
+}
+
+.list-group-2 {
   text-align: center;
 }
 
 /*about us + mission statement -- shavana*/
+
+#about-links {
+  color: white;
+}
+
+#about-links:hover {
+  color: var(--good-green)
+}
+
 
 .background-image-about-us {
   background-image: url(https://images.contentstack.io/v3/assets/blt9039451385f46c16/blt3116ad924039c4d7/635f3ce00fa147757fdb8301/protein-power.png);

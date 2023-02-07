@@ -66,11 +66,18 @@ header {
   padding-top: 5%;
 }
 
-@media(min-width:720px) {}
+@media(min-width:720px) {
+  #restaurant-list {
+    position: absolute;
+    top: 102%;
+  }
+}
 
 @media(min-width:1000px) {
-  position: absolute;
-  top: 102%;
+  #restaurant-list {
+    position: absolute;
+    top: 102%;
+  }
 }
 
 
@@ -83,9 +90,17 @@ header {
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-#googlesearch {
-  width: 170px;
 
+/*city searchbar*/
+#googlesearch {
+  width: 140px;
+}
+
+@media(min-width: 620px) {
+  #googlesearch {
+    width: 170px;
+
+  }
 }
 
 @media(min-width: 720px) {
@@ -101,11 +116,12 @@ header {
   }
 }
 
+/*zip code searchbar*/
 
 #zip {
   width: 170px;
-
 }
+
 
 @media(min-width: 720px) {
   #zip {
@@ -143,7 +159,7 @@ header {
 }
 
 /* For devices larger than 400px */
-/*@media (min-width: 400px) {
+/*@media (min-width: 320px) {
   .container {
     width: 85%;
     padding: 0; }
@@ -725,7 +741,7 @@ there.
 
 
 /* Larger than mobile */
-@media (min-width: 400px) {}
+@media (min-width: 320px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 650px) {}

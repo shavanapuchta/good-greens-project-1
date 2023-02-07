@@ -55,11 +55,11 @@ header {
   /*left: 25%;*/
   top: 18%;
 }
-
+/* 620 pixels and smaller*/
 #restaurant-list {
-  position: static;
+  position: absolute;
   width: 100%;
-  top: 82%;
+  top: 102%;
   display: inline-grid;
   align-content: end;
   justify-content: center;
@@ -122,6 +122,12 @@ header {
   width: 140px;
 }
 
+@media(min-width: 620px) {
+  #zip{
+    width: 170px;
+
+  }
+}
 
 @media(min-width: 720px) {
   #zip {

@@ -1,5 +1,4 @@
 //var APIkey = "AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc"
-
 var weatherKey = "4b68235b6d97901e4e6eb2b454a04dd0";
 var map;
 var service;

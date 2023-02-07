@@ -42,16 +42,15 @@ function initMap() {
                 console.log(status);
                 console.log(place);
                 createMarker(place);
+                const placesList = document.getElementById("favorites")
+                const li = document.createElement("li");
+                placesList.appendChild(li);
+                li.innerHTML = place.name + "<br> Address: " + place.formatted_address + "<br> Price: " + place.price_level + "<br> Rating: " + place.rating;
             }
         }
     }
 
     function createMarker(place) {
-        const placesList = document.getElementById("favorites")
-        const li = document.createElement("li");
-        placesList.appendChild(li);
-        li.innerHTML = place.name + place.formatted_address + place.price_level + place.rating
-
         if (!place.geometry || !place.geometry.location) return;
 
         marker = new google.maps.Marker({

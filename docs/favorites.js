@@ -17,7 +17,7 @@ console.log(coord)
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
         center: coord,
-        zoom: 13,
+        zoom: 5,
         mapId: "5e79efcdf99d1225",
     });
 

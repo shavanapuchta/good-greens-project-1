@@ -55,29 +55,28 @@ header {
   /*left: 25%;*/
   top: 18%;
 }
-
+/* 620 pixels and smaller*/
 #restaurant-list {
-  position: static;
+  position: absolute;
   width: 100%;
-  top: 82%;
+  top: 102%;
   display: inline-grid;
   align-content: end;
   justify-content: center;
   padding-top: 15%;
 }
 
-
-
-@media(max-width:1350px) {
-  #restaurant-list{
-    top: 90%;
-    padding-top: 15%;
+@media(min-width:720px) {
+  #restaurant-list {
+    position: absolute;
+    top: 102%;
   }
 }
-@media(max-width:1000px) {
-  #restaurant-list{
-    top: 90%;
-    padding-top: 20%;
+
+@media(min-width:1000px) {
+  #restaurant-list {
+    position: absolute;
+    top: 102%;
   }
 }
 
@@ -91,35 +90,56 @@ header {
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/*city searchbar*/
 #googlesearch {
-  width:170px;
-  
-  }
-@media(min-width: 720px){
-  #googlesearch {
-    width:200px; /*720px*/
-    }
-}
-@media(min-width: 1000px){
-#googlesearch {
-width:220px;
-}
+  width: 140px;
 }
 
+@media(min-width: 620px) {
+  #googlesearch {
+    width: 170px;
+
+  }
+}
+
+@media(min-width: 720px) {
+  #googlesearch {
+    width: 200px;
+    /*720px*/
+  }
+}
+
+@media(min-width: 1000px) {
+  #googlesearch {
+    width: 220px;
+  }
+}
+
+/*zip code searchbar*/
 
 #zip {
-  width:170px;
-  
+  width: 140px;
+}
+
+@media(min-width: 620px) {
+  #zip{
+    width: 170px;
+
   }
-@media(min-width: 720px){
-  #zip {
-    width:200px; /*720px*/
-    }
 }
-@media(min-width: 1000px){
+
+@media(min-width: 720px) {
   #zip {
-width:220px;
+    width: 200px;
+    /*720px*/
+  }
 }
+
+@media(min-width: 1000px) {
+  #zip {
+    width: 220px;
+  }
 }
 
 .container {
@@ -138,7 +158,7 @@ width:220px;
 }
 
 /* For devices larger than 400px */
-/*@media (min-width: 400px) {
+/*@media (min-width: 320px) {
   .container {
     width: 85%;
     padding: 0; }
@@ -719,7 +739,7 @@ there.
 
 
 /* Larger than mobile */
-@media (min-width: 400px) {}
+@media (min-width: 320px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (max-width: 650px) {

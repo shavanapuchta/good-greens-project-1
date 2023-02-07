@@ -564,6 +564,62 @@ label>.label-body {
   margin-bottom: 5px;
 }
 
+/*favorites list -- shavana*/
+
+.favorites-background-image {
+  background-image: url(https://post.healthline.com/wp-content/uploads/2021/08/healthy-eating-food-sweet-potato-kale-bowl-grain-vegan-1296x728-header-800x728.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+
+.favorites-nav {
+  text-align: right;
+  padding: 20px;
+}
+
+.favorites-header {
+  text-align: center;
+}
+
+.list-group-2 {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+/*about us + mission statement -- shavana*/
+
+.background-image-about-us {
+  background-image: url(https://images.contentstack.io/v3/assets/blt9039451385f46c16/blt3116ad924039c4d7/635f3ce00fa147757fdb8301/protein-power.png);
+  background-size: cover;
+  height: 100vh;
+}
+
+.about-us-nav {
+  text-align: right;
+  padding: 20px;
+}
+
+.about-us-form {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 20px;
+}
+
+.about-us {
+  padding-bottom: 1.5%;
+}
+
+.about-us,
+.mission-statement {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
 /*for devices wider than 550px -sasha*/
 /*@media (min-width: 650px){
     div.container{

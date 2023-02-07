@@ -581,8 +581,17 @@ label>.label-body {
   text-align: center;
 }
 
-.list-group-2 {
+/*favorites page list formatting*/
+
+#favorites-list-container {
   background-color: rgba(255, 255, 255, 0.8);
+  width: 85%;
+  border-radius: 15px;
+  margin: 0 auto;
+padding: 10px;
+}
+
+.list-group-2 {
   text-align: center;
 }
 

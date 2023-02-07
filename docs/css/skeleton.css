@@ -63,7 +63,6 @@ header {
   display: inline-grid;
   align-content: end;
   justify-content: center;
-  padding-top: 15%;
 }
 
 @media(min-width:720px) {

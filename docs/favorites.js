@@ -4,20 +4,36 @@
 
 var APIkey = "AIzaSyDbRLVtnxgOTPF4I23qMVJ908WFl6-TDOc"
 
-var createList = document.querySelectorAll("li");
-
 // Grabs favorites array from local storage
-var favoriteList = JSON.parse(localStorage.getItem("Favorites")) || [];
+var favoritesList = JSON.parse(localStorage.getItem("favorites")) || [];
 
 // Create function that loops through favoriteList and fetches for each placeID  
 
-for (let i = 0; i < favoriteList.length; i++) {
-    console.log(favoriteList[i]);
+for (let i = 0; i < favoritesList.length; i++) {
+    console.log(favoritesList[i]);
 }
 
 window.onload = (event) => {
-    console.log('The page has fully loaded')
+    console.log('The page has fully loaded');
+    addFavorites();
 }
+
+function addFavorites() {
+    console.log(favoritesList)
+
+    const favoritesListElement = document.getElementById("favorites");
+
+    // for (const place of places) {
+    const li = document.createElement("li");
+
+    li.innerHTML = favoritesList + " did I do that?"
+}
+
+
+
+
+
+
 
 
 // Set the position of the marker using the place ID and location.
@@ -35,10 +51,3 @@ window.onload = (event) => {
 // infowindow.open(map, marker);
 
 // window.initMap = initMap;
-
-function addFavorites() {
-    console.log(favoriteList)
-    // const placesList = document.getElementById("places");
-
-    // for (const place of places) {
-}

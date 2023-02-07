@@ -308,26 +308,6 @@ function addPlaces(places, map) {
       li.addEventListener("click", () => {
         map.setCenter(place.geometry.location);
 
-        // if (place.rating < 1.5) {
-        //   place.rating.style.color = "violet"
-        // }
-        // if (place.rating >= 1.5 && < 2.5) {
-        //   place.rating.style.color = "red"
-
-        // }
-        // if (place.rating >= 2.5 && place.rating <3.5) {
-        //   
-
-        // }
-        // if (place.rating >= 3.5 && place.rating <4.5) {
-        //   place.rating.style.color = "red"
-
-        // }
-        // if (place.rating >= 4.5) {
-        //   place.rating.style.color = "red"
-
-        // }
-
 
       });
 
@@ -339,17 +319,14 @@ function addPlaces(places, map) {
 
 function storeFavorites(event) {
   console.log(event.target.getAttribute("data-placeId"))
-  var favoriteList = JSON.parse(localStorage.getItem("favorites")) || [];
-  favoriteList.push(event.target.getAttribute("data-placeId"))
-  localStorage.setItem("favorites", JSON.stringify(favoriteList))
+  var favoritesList = JSON.parse(localStorage.getItem("favorites")) || [];
+  favoritesList.push(event.target.getAttribute("data-placeId"))
+  localStorage.setItem("favorites", JSON.stringify(favoritesList))
   alert("Restaurant saved to favorites")
 }
 
-// // we will want to find the restaurant and vegetarian in here 
-
 
 window.initMap = initMap();
-// Need to figure out what additional call we need to figure out to get to the restaurants for the location.
 
 
 //service.textSearch(request, callback);

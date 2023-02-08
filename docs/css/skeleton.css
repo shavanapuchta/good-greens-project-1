@@ -93,10 +93,24 @@ header {
 
 /*city searchbar*/
 #googlesearch {
-  width: 140px;
+  width: 84%;
+}
+/* For the polyfill */
+.-placeholder {
+	color: #989595;
+}
+.-placeholder-input {
+	/*  ...  */
 }
 
-@media(min-width: 620px) {
+
+::placeholder,  /* CSS 3 */
+::-moz-placeholder,  /* Mozilla */
+::-webkit-placeholder {  /* Webkit */
+	color: #888;
+}
+
+/*@media(min-width: 620px) {
   #googlesearch {
     width: 170px;
 
@@ -107,7 +121,7 @@ header {
   #googlesearch {
     width: 200px;
     /*720px*/
-  }
+/*  }
 }
 
 @media(min-width: 1000px) {
@@ -119,10 +133,13 @@ header {
 /*zip code searchbar*/
 
 #zip {
-  width: 140px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
 }
 
-@media(min-width: 620px) {
+/*@media(min-width: 620px) {
   #zip {
     width: 170px;
 
@@ -133,14 +150,14 @@ header {
   #zip {
     width: 200px;
     /*720px*/
-  }
+  /*}
 }
 
 @media(min-width: 1000px) {
   #zip {
     width: 220px;
   }
-}
+}*/
 
 .container {
   position: static;
@@ -149,7 +166,25 @@ header {
   z-index: 2;
   padding-top: 5%;
 }
-
+#state{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+#countrycode{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+#CSZ{
+  width: 30%;
+}
+#zip{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
 .column,
 .columns {
   width: 100%;
@@ -271,6 +306,7 @@ body {
 div.container {
   align-items: center;
   margin-top: 0%;
+  width: 370px;
 }
 
 .searched-rest {
@@ -527,32 +563,45 @@ label>.label-body {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 15px;
+  display: flex;
+  flex-direction: row;
 }
 
 .translucent-form-overlay .columns.row {
-  display: block;
-}
 
+}
+.translucent-form-overlay input:focus{
+  color: #8a8a8a !important;
+}
 .translucent-form-overlay h3,
 .translucent-form-overlay label {
   color: var(--good-green);
+}
+.translucent-form-overlay input,
+.translucent-form-overlay select {
+  color: #b0afaf;
 }
 
 .translucent-form-overlay input,
 .translucent-form-overlay select {
   color: #8a8a8a;
 }
-
+#note{
+  color: #b0afaf;
+  font-size: x-small;
+  padding: 0;
+  margin: 0;
+}
 .translucent-form-overlay input::-webkit-input-placeholder {
-  color: #8a8a8a;
+  color: #b0afaf;
 }
 
 .translucent-form-overlay input:-ms-input-placeholder {
-  color: #8a8a8a;
+  color: #b0afaf;
 }
 
 .translucent-form-overlay input::placeholder {
-  color: #8a8a8a;
+  color: #b0afaf;
 }
 
 #more {
@@ -883,7 +932,7 @@ there.
   }
 
   .translucent-form-overlay {
-    max-width: 200px;
+    max-width: 300px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;

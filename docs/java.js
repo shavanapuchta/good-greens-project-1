@@ -3,10 +3,19 @@ var weatherKey = "4b68235b6d97901e4e6eb2b454a04dd0";
 var map;
 var service;
 var infowindow;
-var searchBtn = document.querySelector(".search-button");
+var searchBtn = document.querySelector(".search-button")
 document.querySelector("#googlesearch").value = "San Diego";
 var vegetariancheck = document.getElementById("veg1");
 var vegancheck = document.getElementById("veg2");
+var getCountry = document.getElementsByClassName('country');
+var getState = document.getElementsByClassName('states');
+var state = document.getElementById('state');
+var country = document.getElementById('countrycode');
+console.log(state.options[state.selectedIndex]);
+console.log(getCountry);
+
+
+//console.log(countrylbl);
 searchCity();
 
 // Displays the city of San Diego and vegetarian/vegan restaurants on the map when opening the website.
@@ -27,6 +36,8 @@ searchBtn.addEventListener("click", function () {
   searchCity()
   var coo = JSON.parse(localStorage.getItem("city"));
   console.log(coo);
+  var list = document.querySelectorAll("li");
+  console.log(list);
   //var storedcity = localStorage.getItem("city");
   //console.log(JSON.parse(storedcity));
 
@@ -36,10 +47,31 @@ searchBtn.addEventListener("click", function () {
 
 function searchCity() {
   var cityName = document.querySelector("#googlesearch").value;
+  var statelbl = getState[state.selectedIndex].getAttribute('label');
+var countrylbl = getCountry[country.selectedIndex].getAttribute('label');
   console.log(cityName);
+  console.log(countrylbl);
   var zip = document.getElementById("zip").value;
   console.log(zip);
-  if (zip == "") {
+  if (countrylbl !== "US"){
+    var queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "," + countrylbl + "&limit=1&appid=" + weatherKey;
+    console.log(queryURL)
+    fetch(queryURL).then(function (response) {
+      console.log(response)
+      return response.json()
+
+    })
+      .then(function (data) {
+
+        console.log(data);
+        coord = { lat: data[0].lat, lng: data[0].lon };
+        console.log(coord)
+        localStorage.setItem("city", JSON.stringify(coord));
+        initMap(coord);
+      })
+  } else {
+  if (countrylbl === "US" && zip == "") {
+
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + weatherKey;
     console.log(queryURL)
     fetch(queryURL).then(function (response) {
@@ -72,6 +104,7 @@ function searchCity() {
         initMap(coord);
       })
   }
+}
 }
 
 function initMap(ev) {
@@ -303,6 +336,7 @@ function addPlaces(places, map) {
         }
       };
 
+
       placesList.appendChild(li);
       li.addEventListener("click", () => {
         map.setCenter(place.geometry.location);
@@ -310,7 +344,10 @@ function addPlaces(places, map) {
 
       });
 
+
+
     }
+
   }
 }
 
@@ -326,6 +363,12 @@ function storeFavorites(event) {
 
 
 window.initMap = initMap();
+
+searchBtn.addEventListener('click', function(){
+
+})
+
+//for(i = 0; i< list.length; )
 
 
 

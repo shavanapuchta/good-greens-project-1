@@ -27,7 +27,7 @@ function initMap() {
 
         var request = {
             placeId: favoritesList[i],
-            fields: ["name", "formatted_address", "price_level", "rating", "place_id", "geometry"]
+            fields: ["name", "formatted_address", "price_level", "rating", "place_id", "geometry", "website"]
         };
         console.log(request)
 

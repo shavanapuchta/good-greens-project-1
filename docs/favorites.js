@@ -17,7 +17,7 @@ console.log(coord)
 function initMap() {
     const map = new google.maps.Map(document.getElementById("favorites-map"), {
         center: coord,
-        zoom: 5,
+        zoom: 15,
         mapId: "5e79efcdf99d1225",
     });
 
@@ -46,6 +46,13 @@ function initMap() {
                 const placesList = document.getElementById("favorites")
                 const li = document.createElement("li");
                 placesList.appendChild(li);
+                map.setCenter(place.geometry.location);
+                placesList.appendChild(li);
+                li.addEventListener("click", () => {
+                  map.setCenter(place.geometry.location);
+            
+            
+                });
                 if (place.price_level == 1) {
         if (place.rating < 1.3) {
           li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <br> Price: $ <br>";
@@ -181,6 +188,8 @@ function initMap() {
         });
 
     }
+
+
 
 }
 

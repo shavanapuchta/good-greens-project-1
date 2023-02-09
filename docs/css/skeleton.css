@@ -191,6 +191,9 @@ header {
   float: left;
   box-sizing: border-box;
 }
+.favoritealert{
+  visibility: hidden;
+}
 
 /* For devices larger than 400px */
 /*@media (min-width: 320px) {

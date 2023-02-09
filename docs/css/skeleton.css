@@ -86,6 +86,20 @@ header {
 }
 
 
+/*alert animation*/
+@keyframes dialogue {
+  from {visitbility:hidden;}
+  to {visibility: visible;}
+
+}
+
+.favoritealert:active {
+  visibility: hidden;
+  color: var(goodgreen);
+  animation-name: dialogue;
+  animation-duration: 4s;
+}
+
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -93,19 +107,24 @@ header {
 #googlesearch {
   width: 84%;
 }
+
 /* For the polyfill */
 .-placeholder {
-	color: #989595;
+  color: #989595;
 }
+
 .-placeholder-input {
-	/*  ...  */
+  /*  ...  */
 }
 
 
-::placeholder,  /* CSS 3 */
-::-moz-placeholder,  /* Mozilla */
-::-webkit-placeholder {  /* Webkit */
-	color: #888;
+::placeholder,
+/* CSS 3 */
+::-moz-placeholder,
+/* Mozilla */
+::-webkit-placeholder {
+  /* Webkit */
+  color: #888;
 }
 
 /*@media(min-width: 620px) {
@@ -148,7 +167,7 @@ header {
   #zip {
     width: 200px;
     /*720px*/
-  /*}
+/*}
 }
 
 @media(min-width: 1000px) {
@@ -164,32 +183,38 @@ header {
   z-index: 2;
   padding-top: 5%;
 }
-#state{
+
+#state {
   width: 80%;
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
 }
-#countrycode{
+
+#countrycode {
   width: 80%;
   display: flex;
   flex-direction: column;
 }
-#CSZ{
+
+#CSZ {
   width: 30%;
 }
-#zip{
+
+#zip {
   width: 80%;
   display: flex;
   flex-direction: column;
 }
+
 .column,
 .columns {
   width: 100%;
   float: left;
   box-sizing: border-box;
 }
-.favoritealert{
+
+.favoritealert {
   visibility: hidden;
 }
 
@@ -568,16 +593,17 @@ label>.label-body {
   flex-direction: row;
 }
 
-.translucent-form-overlay .columns.row {
+.translucent-form-overlay .columns.row {}
 
-}
-.translucent-form-overlay input:focus{
+.translucent-form-overlay input:focus {
   color: #8a8a8a !important;
 }
+
 .translucent-form-overlay h3,
 .translucent-form-overlay label {
   color: var(--good-green);
 }
+
 .translucent-form-overlay input,
 .translucent-form-overlay select {
   color: #b0afaf;
@@ -587,12 +613,14 @@ label>.label-body {
 .translucent-form-overlay select {
   color: #8a8a8a;
 }
-#note{
+
+#note {
   color: #b0afaf;
   font-size: x-small;
   padding: 0;
   margin: 0;
 }
+
 .translucent-form-overlay input::-webkit-input-placeholder {
   color: #b0afaf;
 }
@@ -635,7 +663,7 @@ label>.label-body {
 /*favorites page list formatting*/
 
 #favorites-list-container {
-  position:relative;
+  position: relative;
   right: 25%;
   background-color: rgba(255, 255, 255, 0.8);
   width: 42%;

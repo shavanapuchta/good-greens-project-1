@@ -18,7 +18,7 @@ console.log(getCountry);
 //console.log(countrylbl);
 searchCity();
 
-// Displays the city of San Diego and vegetarian/vegan restaurants on the map when opening the website.
+// Displays the city of San Diego and vegetarian/vegan restaurants on the map.
 
 var coord = { lat: 32.11, lng: -117.32 }
 console.log(coord)
@@ -48,12 +48,12 @@ searchBtn.addEventListener("click", function () {
 function searchCity() {
   var cityName = document.querySelector("#googlesearch").value;
   var statelbl = getState[state.selectedIndex].getAttribute('label');
-var countrylbl = getCountry[country.selectedIndex].getAttribute('label');
+  var countrylbl = getCountry[country.selectedIndex].getAttribute('label');
   console.log(cityName);
   console.log(countrylbl);
   var zip = document.getElementById("zip").value;
   console.log(zip);
-  if (countrylbl !== "US"){
+  if (countrylbl !== "US") {
     var queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "," + countrylbl + "&limit=1&appid=" + weatherKey;
     console.log(queryURL)
     fetch(queryURL).then(function (response) {
@@ -70,41 +70,41 @@ var countrylbl = getCountry[country.selectedIndex].getAttribute('label');
         initMap(coord);
       })
   } else {
-  if (countrylbl === "US" && zip == "") {
+    if (countrylbl === "US" && zip == "") {
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + weatherKey;
-    console.log(queryURL)
-    fetch(queryURL).then(function (response) {
-      console.log(response)
-      return response.json()
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + weatherKey;
+      console.log(queryURL)
+      fetch(queryURL).then(function (response) {
+        console.log(response)
+        return response.json()
 
-    })
-      .then(function (data) {
-
-        console.log(data);
-        coord = { lat: data.coord.lat, lng: data.coord.lon };
-        console.log(coord)
-        localStorage.setItem("city", JSON.stringify(coord));
-        initMap(coord);
       })
-  } else {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + weatherKey;
-    console.log(queryURL)
-    fetch(queryURL).then(function (response) {
-      console.log(response)
-      return response.json()
+        .then(function (data) {
 
-    })
-      .then(function (data) {
+          console.log(data);
+          coord = { lat: data.coord.lat, lng: data.coord.lon };
+          console.log(coord)
+          localStorage.setItem("city", JSON.stringify(coord));
+          initMap(coord);
+        })
+    } else {
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + weatherKey;
+      console.log(queryURL)
+      fetch(queryURL).then(function (response) {
+        console.log(response)
+        return response.json()
 
-        console.log(data);
-        coord = { lat: data.coord.lat, lng: data.coord.lon };
-        console.log(coord)
-        localStorage.setItem("city", JSON.stringify(coord));
-        initMap(coord);
       })
+        .then(function (data) {
+
+          console.log(data);
+          coord = { lat: data.coord.lat, lng: data.coord.lon };
+          console.log(coord)
+          localStorage.setItem("city", JSON.stringify(coord));
+          initMap(coord);
+        })
+    }
   }
-}
 }
 
 function initMap(ev) {
@@ -358,13 +358,12 @@ function storeFavorites(event) {
   var favoritesList = JSON.parse(localStorage.getItem("favorites")) || [];
   favoritesList.push(event.target.getAttribute("data-placeId"))
   localStorage.setItem("favorites", JSON.stringify(favoritesList))
-  alert("Restaurant saved to favorites")
 }
 
 
 window.initMap = initMap();
 
-searchBtn.addEventListener('click', function(){
+searchBtn.addEventListener('click', function () {
 
 })
 

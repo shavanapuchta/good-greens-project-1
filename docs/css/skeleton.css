@@ -88,16 +88,19 @@ header {
 
 /*alert animation*/
 @keyframes dialogue {
-  from {visitbility:hidden;}
-  to {visibility: visible;}
+
+  from{visibility: hidden;}
+  to{visibility: visible;}
 
 }
 
-.favoritealert:active {
+.addfavorite:focus ~ .favoritealert {
   visibility: hidden;
-  color: var(goodgreen);
+  font-weight: bolder;
+  color: var(--good-green);
   animation-name: dialogue;
   animation-duration: 4s;
+
 }
 
 /* Grid

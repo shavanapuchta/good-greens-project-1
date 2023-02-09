@@ -43,3 +43,10 @@ Skeleton CSS: http://getskeleton.com/
 Foundation6: https://get.foundation/building-blocks/index-2.html
 
 Polyfill: https://polyfill.io/v3/api/
+
+## Site
+
+Deployed Site: https://shavanapuchta.github.io/good-greens-project-1/
+GitHub URL: https://github.com/shavanapuchta/good-greens-project-1
+
+

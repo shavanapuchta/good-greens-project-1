@@ -23,9 +23,19 @@ THEN I save that restaurant's information to the favorites page
 WHEN I click on the favorites link in the navigation bar
 THEN I am presented with a list of all restaurants that I have saved, with their information, and map location
 ```
+## Functionality 
+Upon opening, the site should appear as so:
+![HomePage](./images/good-greens-port.png)
+
+When choosing a "favorite restaurant from the search list, you will get an alert, and can access the site from your local storage on the "favorites" page:
+![Favorites](./images/)
 
 ## Resources
-
+Google Places
+Weather
+Skeleton CSS
+Foundation6
+Polyfill
 ## Mock-Up
 
 

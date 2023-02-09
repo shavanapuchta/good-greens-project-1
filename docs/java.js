@@ -335,7 +335,7 @@ function addPlaces(places, map) {
           li.innerHTML = place.name + "<br> Address: " + place.vicinity + "<button onclick='storeFavorites(event)' data-placeId='" + place.place_id + "' class='addfavorite'>Favorite &#11088</button><br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: Price Not Listed" + "<br><span class='favoritealert'>Added To Favorites</span>";
         }
       };
-
+      
 
       placesList.appendChild(li);
       li.addEventListener("click", () => {
@@ -343,13 +343,15 @@ function addPlaces(places, map) {
 
 
       });
-
+      
 
 
     }
 
   }
+  displayweblink();
 }
+
 
 // function that saves favorites to local storage
 
@@ -360,9 +362,34 @@ function storeFavorites(event) {
   localStorage.setItem("favorites", JSON.stringify(favoritesList))
   
 }
+function displayweblink () {
+var findvalue = document.querySelectorAll('li');
+console.log(findvalue);
+for (i =0; i<findvalue.length; i++){
+var findvalueattribute = findvalue[i].children[1].attributes[1].nodeValue;
+//console.log(findvalue[0].getAttribute('data-placeId'));
+var request = {
+  placeId: findvalueattribute,
+  fields: ["name", "website"]
+};
+console.log(request)
 
+const service = new google.maps.places.PlacesService(map);
 
+service.getDetails(request, callback);
+function callback(place, status) {
+  if (
+    status == google.maps.places.PlacesServiceStatus.OK &&
+    place &&
+    place.geometry &&
+    place.geometry.location) {
+    findvalue.innerHTML += " Website: <a href='" + place.website + ">" + place.name + "</a>"
+      }
+    }
+  }
+  }
 window.initMap = initMap();
+
 
 searchBtn.addEventListener('click', function(){
 

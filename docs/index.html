@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="country" lang="en">
   <head>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
@@ -34,10 +34,10 @@
 </head>
   </head>
   
-    <!-- Primary Page Layout
+    <!-- Primary Page id="country" Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <header>
-      <h1 class="title"> Good Greens <img src="images/goodgreens-logo-reversed.png" width="63px" height="63px" alt="whimsical leaf logo"></h1>
+      <h1 class="title"> Good Greens <img src="images/goodgreens-logo-reversed.png" width="63px" height="63px" alt="whimsical id="country" leaf id="country" logo"></h1>
       <nav class="topnav">
         <a class="active" href="index.html">Find Restaurants  |</a>
         <a class="active" href="about-index.html">   About Us   |</a>
@@ -68,16 +68,332 @@
             <div class="row columns">
               <label
                 >City
-                <input id="googlesearch" type="text" name="keyword" />
+                <div><input id="googlesearch" type="text" name="keyword" /></div>
               </label>
             </div>
-            <div class="row columns">
+            <div class="row columns" id="CSZ">
+              <label
+                >State
+                <select id="state" type="text" name="keyword" placeholder="CA">
+                    <option class="states" label="CA"></option>  
+                    <option class="states" label="AL"></option>
+                    <option class="states" label="AK"></option>
+                    <option class="states" label="AZ"></option>
+                    <option class="states" label="AR"></option>
+                    <option class="states" label="CO"></option>
+                    <option class="states" label="CT"></option>
+                    <option class="states" label="DE"></option>
+                    <option class="states" label="DC"></option>
+                    <option class="states" label="FL"></option>
+                    <option class="states" label="GA"></option>
+                    <option class="states" label="HI"></option>
+                    <option class="states" label="ID"></option>
+                    <option class="states" label="IL"></option>
+                    <option class="states" label="IN"></option>
+                    <option class="states" label="IA"></option>
+                    <option class="states" label="KS"></option>
+                    <option class="states" label="KY"></option>
+                    <option class="states" label="LA"></option>
+                    <option class="states" label="ME"></option>
+                    <option class="states" label="MD"></option>
+                    <option class="states" label="MA"></option>
+                    <option class="states" label="MI"></option>
+                    <option class="states" label="MN"></option>
+                    <option class="states" label="MS"></option>
+                    <option class="states" label="MO"></option>
+                    <option class="states" label="MT"></option>
+                    <option class="states" label="NE"></option>
+                    <option class="states" label="NV"></option>
+                    <option class="states" label="NH"></option>
+                    <option class="states" label="NJ"></option>
+                    <option class="states" label="NM"></option>
+                    <option class="states" label="NY"></option>
+                    <option class="states" label="NC"></option>
+                    <option class="states" label="ND"></option>
+                    <option class="states" label="OH"></option>
+                    <option class="states" label="OK"></option>
+                    <option class="states" label="OR"></option>
+                    <option class="states" label="PA"></option>
+                    <option class="states" label="RI"></option>
+                    <option class="states" label="SC"></option>
+                    <option class="states" label="SD"></option>
+                    <option class="states" label="TN"></option>
+                    <option class="states" label="TX"></option>
+                    <option class="states" label="UT"></option>
+                    <option class="states" label="VT"></option>
+                    <option class="states" label="VA"></option>
+                    <option class="states" label="WA"></option>
+                    <option class="states" label="WV"></option>
+                    <option class="states" label="WI"></option>
+                    <option class="states" label="WY"></option>
+                </select>
+                <span id="note">*US only</span>
+              </label>
+              
+            </div>
+            <div class="row columns" id="CSZ">
+              <label
+                >Country
+                <select id="countrycode" type="text" name="keyword" placeholder="US">
+<option class="country" label="US"></option>
+<option class="country" label="GB"></option> 
+<option class="country" label="IE"></option>
+<option class="country" label="FR"></option> 
+<option class="country" label="JP"></option>
+<option class="country" label="BR"></option>
+<option class="country" label="DE"></option>
+<option class="country" label="DK"></option>
+<option class="country" label="ES"></option> 
+<option class="country" label="FI"></option>
+<option class="country" label="IL"></option>
+<option class="country" label="IT"></option>
+<option class="country" label="CA"></option>
+<option class="country" label="MX"></option>
+<option class="country" label="SE"></option>
+<option class="country" label="NO"></option>
+<option class="country" label="CH"></option>
+<option class="country" label="PL"></option>
+<option class="country" label="PT"></option>
+<option class="country" label="PR"></option> 
+<option class="country" label="JM"></option>
+<option class="country" label="AE"></option> 
+<option class="country" label="PH"></option> 
+<option class="country" label="HK"></option>
+<option class="country" label="HU"></option>
+<option class="country" label="IS"></option>
+<option class="country" label="IN"></option>        
+<option class="country" label="AF"></option>
+<option class="country" label="AL"></option>
+<option class="country" label="DZ"></option>
+<option class="country" label="AS"></option>
+<option class="country" label="AD"></option>
+<option class="country" label="AO"></option>
+<option class="country" label="AI"></option>
+<option class="country" label="AQ"></option>
+<option class="country" label="AG"></option>
+<option class="country" label="AR"></option>
+<option class="country" label="AM"></option>
+<option class="country" label="AW"></option>
+<option class="country" label="AU"></option>
+<option class="country" label="AT"></option>
+<option class="country" label="AZ"></option>
+<option class="country" label="BS"></option>
+<option class="country" label="BH"></option>
+<option class="country" label="BD"></option>
+<option class="country" label="BB"></option>
+<option class="country" label="BY"></option>
+<option class="country" label="BE"></option>
+<option class="country" label="BZ"></option>
+<option class="country" label="BJ"></option>
+<option class="country" label="BM"></option>
+<option class="country" label="BT"></option>
+<option class="country" label="BO"></option>
+<option class="country" label="BQ"></option>
+<option class="country" label="BA"></option>
+<option class="country" label="BW"></option>
+<option class="country" label="BV"></option>
+<option class="country" label="IO"></option>
+<option class="country" label="BN"></option>
+<option class="country" label="BG"></option>
+<option class="country" label="BF"></option>
+<option class="country" label="BI"></option>
+<option class="country" label="CV"></option>
+<option class="country" label="KH"></option>
+<option class="country" label="CM"></option>
+<option class="country" label="KY"></option>
+<option class="country" label="CF"></option>
+<option class="country" label="TD"></option>
+<option class="country" label="CL"></option>
+<option class="country" label="CN"></option>
+<option class="country" label="CX"></option>
+<option class="country" label="CC"></option>
+<option class="country" label="CO"></option>
+<option class="country" label="KM"></option>
+<option class="country" label="CD"></option>
+<option class="country" label="CG"></option>
+<option class="country" label="CK"></option>
+<option class="country" label="CR"></option>
+<option class="country" label="HR"></option>
+<option class="country" label="CU"></option>
+<option class="country" label="CW"></option>
+<option class="country" label="CY"></option>
+<option class="country" label="CZ"></option>
+<option class="country" label="CI"></option>
+<option class="country" label="DJ"></option>
+<option class="country" label="DM"></option>
+<option class="country" label="DO"></option>
+<option class="country" label="EC"></option>
+<option class="country" label="EG"></option>
+<option class="country" label="SV"></option>
+<option class="country" label="GQ"></option>
+<option class="country" label="ER"></option>
+<option class="country" label="EE"></option>
+<option class="country" label="SZ"></option>
+<option class="country" label="ET"></option>
+<option class="country" label="FK"></option>
+<option class="country" label="FO"></option>
+<option class="country" label="FJ"></option>
+<option class="country" label="GF"></option>
+<option class="country" label="PF"></option>
+<option class="country" label="TF"></option>
+<option class="country" label="GA"></option>
+<option class="country" label="GM"></option>
+<option class="country" label="GE"></option>
+<option class="country" label="GH"></option>
+<option class="country" label="GI"></option>
+<option class="country" label="GR"></option>
+<option class="country" label="GL"></option>
+<option class="country" label="GD"></option>
+<option class="country" label="GP"></option>
+<option class="country" label="GU"></option>
+<option class="country" label="GT"></option>
+<option class="country" label="GG"></option>
+<option class="country" label="GN"></option>
+<option class="country" label="GW"></option>
+<option class="country" label="GY"></option>
+<option class="country" label="HT"></option>
+<option class="country" label="HM"></option>
+<option class="country" label="VA"></option>
+<option class="country" label="HN"></option>
+<option class="country" label="ID"></option>
+<option class="country" label="IR"></option>
+<option class="country" label="IQ"></option>
+<option class="country" label="IM"></option>
+<option class="country" label="JE"></option>
+<option class="country" label="JO"></option>
+<option class="country" label="KZ"></option>
+<option class="country" label="KE"></option>
+<option class="country" label="KI"></option>
+<option class="country" label="KP"></option>
+<option class="country" label="KR"></option>
+<option class="country" label="KW"></option>
+<option class="country" label="KG"></option>
+<option class="country" label="LA"></option>
+<option class="country" label="LV"></option>
+<option class="country" label="LB"></option>
+<option class="country" label="LS"></option>
+<option class="country" label="LR"></option>
+<option class="country" label="LY"></option>
+<option class="country" label="LI"></option>
+<option class="country" label="LT"></option>
+<option class="country" label="LU"></option>
+<option class="country" label="MO"></option>
+<option class="country" label="MG"></option>
+<option class="country" label="MW"></option>
+<option class="country" label="MY"></option>
+<option class="country" label="MV"></option>
+<option class="country" label="ML"></option>
+<option class="country" label="MT"></option>
+<option class="country" label="MQ"></option>
+<option class="country" label="MR"></option>
+<option class="country" label="MU"></option>
+<option class="country" label="YT"></option>
+<option class="country" label="FM"></option>
+<option class="country" label="MD"></option>
+<option class="country" label="MC"></option>
+<option class="country" label="MN"></option>
+<option class="country" label="ME"></option>
+<option class="country" label="MS"></option>
+<option class="country" label="MA"></option>
+<option class="country" label="MZ"></option>
+<option class="country" label="MM"></option>
+<option class="country" label="NA"></option>
+<option class="country" label="NR"></option>
+<option class="country" label="NP"></option>
+<option class="country" label="NL"></option>
+<option class="country" label="NC"></option>
+<option class="country" label="NZ"></option>
+<option class="country" label="NI"></option>
+<option class="country" label="NE"></option>
+<option class="country" label="NG"></option>
+<option class="country" label="NU"></option>
+<option class="country" label="NF"></option>
+<option class="country" label="MK"></option>
+<option class="country" label="MP"></option>
+<option class="country" label="OM"></option>
+<option class="country" label="PK"></option>
+<option class="country" label="PW"></option>
+<option class="country" label="PS"></option>
+<option class="country" label="PA"></option>
+<option class="country" label="PG"></option>
+<option class="country" label="PY"></option>
+<option class="country" label="PE"></option>
+<option class="country" label="PN"></option>
+<option class="country" label="QA"></option>
+<option class="country" label="RO"></option>
+<option class="country" label="RU"></option>
+<option class="country" label="RW"></option>
+<option class="country" label="RE"></option>
+<option class="country" label="BL"></option>
+<option class="country" label="SH"></option>
+<option class="country" label="KN"></option>
+<option class="country" label="LC"></option>
+<option class="country" label="MF"></option>
+<option class="country" label="PM"></option>
+<option class="country" label="VC"></option>
+<option class="country" label="WS"></option>
+<option class="country" label="SM"></option>
+<option class="country" label="ST"></option>
+<option class="country" label="SA"></option>
+<option class="country" label="SN"></option>
+<option class="country" label="RS"></option>
+<option class="country" label="SC"></option>
+<option class="country" label="SL"></option>
+<option class="country" label="SG"></option>
+<option class="country" label="SX"></option>
+<option class="country" label="SK"></option>
+<option class="country" label="SI"></option>
+<option class="country" label="SB"></option>
+<option class="country" label="SO"></option>
+<option class="country" label="ZA"></option>
+<option class="country" label="GS"></option>
+<option class="country" label="SS"></option>
+<option class="country" label="LK"></option>
+<option class="country" label="SD"></option>
+<option class="country" label="SR"></option>
+<option class="country" label="SJ"></option>
+<option class="country" label="SY"></option>
+<option class="country" label="TW"></option>
+<option class="country" label="TJ"></option>
+<option class="country" label="TZ"></option>
+<option class="country" label="TH"></option>
+<option class="country" label="TL"></option>
+<option class="country" label="TG"></option>
+<option class="country" label="TK"></option>
+<option class="country" label="TO"></option>
+<option class="country" label="TT"></option>
+<option class="country" label="TN"></option>
+<option class="country" label="TM"></option>
+<option class="country" label="TC"></option>
+<option class="country" label="TV"></option>
+<option class="country" label="TR"></option>
+<option class="country" label="UG"></option>
+<option class="country" label="UA"></option>
+<option class="country" label="UM"></option>
+<option class="country" label="UY"></option>
+<option class="country" label="UZ"></option>
+<option class="country" label="VU"></option>
+<option class="country" label="VE"></option>
+<option class="country" label="VN"></option>
+<option class="country" label="VG"></option>
+<option class="country" label="VI"></option>
+<option class="country" label="WF"></option>
+<option class="country" label="EH"></option>
+<option class="country" label="YE"></option>
+<option class="country" label="ZM"></option>
+<option class="country" label="ZW"></option>
+<option class="country" label="AX"></option>
+                </select>
+              </label>
+            </div>
+            <div class="row columns" id="CSZ">
               <label
                 >Zip Code
-                <input id="zip" type="text" name="zipkey" />
+                <input id="zip" type="text" name="zipkey" placeholder="optional"/>
+                <span id="note">*US only</span>
               </label>
             </div>
-            <button type="button" class="primary button expanded search-button">
+            <button id="srchbtn" type="button" class="primary button expanded search-button">
               Search
             </button>
           </form>

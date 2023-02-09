@@ -14,52 +14,184 @@ var coord = { lat: 32.7153, lng: -117.1573 }
 console.log(coord)
 
 
+// // Initializes the map and plugs in the coordinates from above for SD when there isn't any restauraunts saved in favorites.
+
 function initMap() {
-    const map = new google.maps.Map(document.getElementById("favorites-map"), {
-        center: coord,
-        zoom: 5,
-        mapId: "5e79efcdf99d1225",
+  const map = new google.maps.Map(document.getElementById("favorites-map"), {
+    center: coord,
+    zoom: 15,
+    mapId: "5e79efcdf99d1225",
+  });
+
+  // Create function that loops through favoriteList and grabs each placeID  
+  for (let i = 0; i < favoritesList.length; i++) {
+    console.log(favoritesList[i]);
+
+    var request = {
+      placeId: favoritesList[i],
+      fields: ["name", "formatted_address", "price_level", "rating", "place_id", "geometry", "website"]
+    };
+    console.log(request)
+
+    const service = new google.maps.places.PlacesService(map);
+
+    service.getDetails(request, callback);
+    function callback(place, status) {
+      if (
+        status == google.maps.places.PlacesServiceStatus.OK &&
+        place &&
+        place.geometry &&
+        place.geometry.location) {
+        console.log(status);
+        console.log(place);
+        createMarker(place);
+        const placesList = document.getElementById("favorites")
+        const li = document.createElement("li");
+        placesList.appendChild(li);
+        map.setCenter(place.geometry.location);
+        placesList.appendChild(li);
+        li.addEventListener("click", () => {
+          map.setCenter(place.geometry.location);
+
+
+        });
+        if (place.price_level == 1) {
+          if (place.rating < 1.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.3 && place.rating < 1.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.7 && place.rating < 2.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf;  <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.3 && place.rating < 2.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.7 && place.rating < 3.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.3 && place.rating < 3.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.7 && place.rating < 4.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.3 && place.rating < 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          }
+        } else if (place.price_level == 2) {
+          if (place.rating < 1.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.3 && place.rating < 1.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.7 && place.rating < 2.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf;  <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.3 && place.rating < 2.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.7 && place.rating < 3.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.3 && place.rating < 3.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.7 && place.rating < 4.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.3 && place.rating < 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          }
+        } else if (place.price_level == 3) {
+          if (place.rating < 1.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.3 && place.rating < 1.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.7 && place.rating < 2.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf;  <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.3 && place.rating < 2.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.7 && place.rating < 3.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.3 && place.rating < 3.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.7 && place.rating < 4.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.3 && place.rating < 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          }
+        } else if (place.price_level == 4) {
+          if (place.rating < 1.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <br> Price: $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.3 && place.rating < 1.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.7 && place.rating < 2.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf;  <br> Price: $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.3 && place.rating < 2.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.7 && place.rating < 3.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <br> Price: $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.3 && place.rating < 3.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price:  $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.7 && place.rating < 4.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <br> Price:  $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.3 && place.rating < 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price:  $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price:  $$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          }
+        } else if (place.price_level == 5) {
+          if (place.rating < 1.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <br> Price: $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.3 && place.rating < 1.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.7 && place.rating < 2.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf;  <br> Price:  $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.3 && place.rating < 2.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.7 && place.rating < 3.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <br> Price: $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.3 && place.rating < 3.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.7 && place.rating < 4.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <br> Price: $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.3 && place.rating < 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: $$$$$ <br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          }
+        } else if (place.price_level == undefined) {
+          if (place.rating < 1.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <br> Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.3 && place.rating < 1.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 1.7 && place.rating < 2.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf;  <br> Price: Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.3 && place.rating < 2.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; <i style='font-size:75%' class='fa'>&#xf123;</i>   <br> Price: Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 2.7 && place.rating < 3.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <br> Price: Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.3 && place.rating < 3.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i>  <br> Price: Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 3.7 && place.rating < 4.3) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <br> Price: Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.3 && place.rating < 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf;  <i style='font-size:75%' class='fa'>&#xf123;</i> <br> Price: Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          } else if (place.rating >= 4.7) {
+            li.innerHTML = place.name + "<br> Address: <br>" + place.formatted_address + "<br> Rating: &starf; &starf; &starf; &starf; &starf; <br> Price: Price Not Listed" + "<br>" + " Website: <a href='" + place.website + "'>" + place.name + "</a>";
+          }
+        };
+
+      }
+    }
+  }
+
+  function createMarker(place) {
+    if (!place.geometry || !place.geometry.location) return;
+
+    marker = new google.maps.Marker({
+      map,
+      position: place.geometry.location,
     });
 
-    // Create function that loops through favoriteList and grabs each placeID  
-    for (let i = 0; i < favoritesList.length; i++) {
-        console.log(favoritesList[i]);
+  }
 
-        var request = {
-            placeId: favoritesList[i],
-            fields: ["name", "formatted_address", "price_level", "rating", "place_id", "geometry"]
-        };
-        console.log(request)
 
-        const service = new google.maps.places.PlacesService(map);
-
-        service.getDetails(request, callback);
-        function callback(place, status) {
-            if (
-                status == google.maps.places.PlacesServiceStatus.OK &&
-                place &&
-                place.geometry &&
-                place.geometry.location) {
-                console.log(status);
-                console.log(place);
-                createMarker(place);
-                const placesList = document.getElementById("favorites")
-                const li = document.createElement("li");
-                placesList.appendChild(li);
-                li.innerHTML = place.name + "<br> Address: " + place.formatted_address + "<br> Price: " + place.price_level + "<br> Rating: " + place.rating;
-            }
-        }
-    }
-
-    function createMarker(place) {
-        if (!place.geometry || !place.geometry.location) return;
-
-        marker = new google.maps.Marker({
-            map,
-            position: place.geometry.location,
-        });
-
-    }
 
 }
 

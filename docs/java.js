@@ -179,23 +179,7 @@ function initMap(ev) {
       }
     )
   }
-  var findvalue = document.getElementsByClassName('addfavorite');
-  console.log(findvalue);
-  for (i =0; i<findvalue.length; i++){
-  var findvalueattribute = findvalue[i].dataset.placeid;
-  console.log(findvalueattribute);
-  //console.log(findvalue[0].getAttribute('data-placeId'));
-  var request = {
-    placeId: findvalueattribute,
-    fields: ["name", "website"]
-  };
-  console.log(request)
-  service.getDetails(request, callback);
-  function callback(place, status) {
-      findvalue.innerHTML += " Website: <a href='" + place.website + ">" + place.name + "</a>"
-        }
-      }
-    }
+}
 
 function addPlaces(places, map) {
   console.log(places)

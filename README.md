@@ -25,17 +25,21 @@ THEN I am presented with a list of all restaurants that I have saved, with their
 ```
 ## Functionality 
 Upon opening, the site should appear as so:
-![HomePage](./images/good-greens-port.png)
+![HomePage](./docs/images/good-greens-port.png)
+
+The site offers both national and international search options. Upon entering a city name of the user's choice, the map will display surrounding restaurant options.
+![CitySearch](./docs/images/city-search-ref.png)
 
 When choosing a "favorite restaurant from the search list, you will get an alert, and can access the site from your local storage on the "favorites" page:
-![Favorites](./images/)
+![Favorites](./docs/images/favorites.png)
 
 ## Resources
-Google Places
-Weather
-Skeleton CSS
-Foundation6
-Polyfill
-## Mock-Up
+Google Places: https://developers.google.com/maps/documentation/places/web-service/overview
 
+Weather API: https://openweathermap.org/api
 
+Skeleton CSS: http://getskeleton.com/
+
+Foundation6: https://get.foundation/building-blocks/index-2.html
+
+Polyfill: https://polyfill.io/v3/api/

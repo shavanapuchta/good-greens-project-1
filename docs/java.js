@@ -120,7 +120,7 @@ function initMap(ev) {
   // Displays more restaurant results at the bottom of the page when we click the "more results button"  
 
   moreButton.onclick = function () {
-    moreButton.disabled = true;
+   // moreButton.disabled = true;
     if (getNextPage) {
       getNextPage();
     }
@@ -153,7 +153,7 @@ function initMap(ev) {
         // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
 
         addPlaces(results, map);
-        moreButton.disabled = !pagination || !pagination.hasNextPage;
+       moreButton.disabled = !pagination || !pagination.hasNextPage;
         if (pagination && pagination.hasNextPage) {
           getNextPage = () => {
             pagination.nextPage();
@@ -170,7 +170,7 @@ function initMap(ev) {
         // Adds the restaurants based on city to a list at the bottom of the page with the address, rating, and price level. 
 
         addPlaces(results, map);
-        moreButton.disabled = !pagination || !pagination.hasNextPage;
+       moreButton.disabled = !pagination || !pagination.hasNextPage;
         if (pagination && pagination.hasNextPage) {
           getNextPage = () => {
             pagination.nextPage();
@@ -179,7 +179,23 @@ function initMap(ev) {
       }
     )
   }
-}
+  var findvalue = document.getElementsByClassName('addfavorite');
+  console.log(findvalue);
+  for (i =0; i<findvalue.length; i++){
+  var findvalueattribute = findvalue[i].dataset.placeid;
+  console.log(findvalueattribute);
+  //console.log(findvalue[0].getAttribute('data-placeId'));
+  var request = {
+    placeId: findvalueattribute,
+    fields: ["name", "website"]
+  };
+  console.log(request)
+  service.getDetails(request, callback);
+  function callback(place, status) {
+      findvalue.innerHTML += " Website: <a href='" + place.website + ">" + place.name + "</a>"
+        }
+      }
+    }
 
 function addPlaces(places, map) {
   console.log(places)
@@ -349,7 +365,6 @@ function addPlaces(places, map) {
     }
 
   }
-  displayweblink();
 }
 
 
@@ -362,38 +377,11 @@ function storeFavorites(event) {
   localStorage.setItem("favorites", JSON.stringify(favoritesList))
   
 }
-function displayweblink () {
-var findvalue = document.querySelectorAll('li');
-console.log(findvalue);
-for (i =0; i<findvalue.length; i++){
-var findvalueattribute = findvalue[i].children[1].attributes[1].nodeValue;
-//console.log(findvalue[0].getAttribute('data-placeId'));
-var request = {
-  placeId: findvalueattribute,
-  fields: ["name", "website"]
-};
-console.log(request)
 
-const service = new google.maps.places.PlacesService(map);
-
-service.getDetails(request, callback);
-function callback(place, status) {
-  if (
-    status == google.maps.places.PlacesServiceStatus.OK &&
-    place &&
-    place.geometry &&
-    place.geometry.location) {
-    findvalue.innerHTML += " Website: <a href='" + place.website + ">" + place.name + "</a>"
-      }
-    }
-  }
-  }
 window.initMap = initMap();
 
 
-searchBtn.addEventListener('click', function(){
 
-})
 
 //for(i = 0; i< list.length; )
 
